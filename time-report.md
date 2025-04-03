@@ -4,4 +4,5 @@
   - *List the things you have done.* -->
 03/04-25 
 - Worked on a basic layout for the website for 1 hour and 20 minutes.
+- Removed a couple of unnecessary normal brackets (took a couple of seconds).
 
