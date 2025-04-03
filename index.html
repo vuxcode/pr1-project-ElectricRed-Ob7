@@ -1,1 +1,249 @@
-<!-- Start writing your project code in this file! -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>An Adventure In The Dark</title>
+<style>
+  * {
+    box-sizing: border-box;
+    margin:0px;
+    padding:0px;
+    text-align: center;
+  }
+  body {
+    background-color: black;
+  }
+  .Button {
+    font-size: 30px;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    margin:10px;
+    display: inline-block;
+  }
+  .Button:hover {
+    color: maroon;
+  }
+  .titleHeading {
+    margin:10px;
+    font-family:papyrus;
+    font-variant: small-caps;
+    font-style: normal;
+    color: rgb(255, 235, 167);
+    text-shadow: 2px 2px 20px rgb(255, 166, 0);
+  }
+  .styleButton {
+    font-size: 30px;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    margin:10px;
+    display: inline-block;
+  }
+  .backButton {
+    margin:10px;
+    font-size: 30px;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    margin:10px;
+    display: inline-block;
+  }
+  .logoDiv {
+    color:rgb(255, 166, 0);
+    text-align: left;
+    width: 200px;
+    height: 100px;
+    margin:10px;
+    border-style: double;
+    border-color: aquamarine;
+  }
+  .programDiv {
+    border-color:white;
+    border-style: groove;
+    width:600px;
+    height: 300px;
+    display:inline-block;
+  }
+</style>
+</head>
+<body>
+<div>
+  <h1 class="logoDiv">Logo</h1>
+</div>
+<h1 id="title" class="titleHeading">An Adventure In The Dark</h1> 
+<div class="programDiv">
+<button id="start" class="Button" onclick="start()">Start</button>
+<button id="leftdoor" class="Button" onclick="leftDoor()">Go through the left door</button>
+<button id="rightdoor" class="Button" onclick="rightDoor()">Go through the right door</button>
+<button id="returnFromDoor1" class="Button" onclick="goBackLeft()">Go back</button>
+<button id="returnFromDoor2" class="Button" onclick="goBackRight()">Go back</button>
+<button id="stairs" class="styleButton" onclick="goUpStairs()">Go Upstairs</button>
+</div>
+<div>
+<script> 
+  // saves the state of the variable
+  var choice1 = false;
+  var choice2 = false;
+  // Find an element with the matching ID
+  var output0 = document.getElementById("title");
+  var output1 = document.getElementById("start");
+  var output2 = document.getElementById("leftdoor");
+  var output3 = document.getElementById("rightdoor");
+  var output4 = document.getElementById("returnFromDoor1");
+  var output5 = document.getElementById("returnFromDoor2");
+  var output6 = document.getElementById("stairs");
+  // create variable with a specific text to be use as an output.
+  var text1 = ("You walk into a creepy abandoned house.");
+  var text2 = ("As you step into to the hallway, you feel adventurous and decide to explore the house.");
+  var directionText = ("You spot a staircase and two closed doors on either side of the staircase.");
+  var text3 = ("You decide to go through the left door.");
+  var text4 = ("You decide to go through the right door.");
+  var amountGold=0;
+  var amountGold=Number(amountGold);
+  // hides the the element(s) with the matching id(s)
+  output2.style.display="none";
+  output3.style.display="none";
+  output4.style.display="none";
+  output5.style.display="none";
+  output6.style.display="none";
+  // Create a function to toggle the display of the output element
+  console.log(choice1);
+  console.log(choice2);
+  function start() {
+      alert (text1 + " " + text2 + " " + directionText);
+      output1.style.display = "none";
+      output2.style.display = "inline-block";
+      output3.style.display = "inline-block";
+      output6.style.display = "none";
+    }
+  function leftDoor() {
+    choice1=true;
+    output2.style.display="none";
+    output3.style.display="none";
+    output4.style.display="inline-block";
+    output5.style.display="none";
+    output6.style.display="none";
+    var random1 = Number(random1);
+    var random1 = Math.random();
+    var max = 20;
+    var random1= Math.floor(random1 * max);
+    console.log (random1);
+    alert (text3);
+    if (random1 <= 1) {
+      alert ("As you walk into the room you manage to hit your head against the doorframe, you take +2 damage and wonder why the hell you are so clumsy...");
+    }
+    else if (random1 <= 5) {
+      alert ("You walk into an empty room and wonder why you are still here...just to suffer...");
+    }
+    else if (random1 <= 15) {
+      alert ("You find a shovel and a pickaxe! Could be useful...");
+    }
+    else if (random1 <= 19) {
+      alert ("You come across a rare sword! You stats increase (+2 dmg).");
+    }
+    else if (random1 > 19) {
+      alert ("You are blessed with the power of immortality, congratulations! But what are you supposed to do with your life now...?");
+    }
+  }
+  var choiceChanceText1=("As you walk into the room, you realise you are not alone. A man is standing in the middle of the room with a crazed smile on his face.");
+  var choiceChanceText2=("He offers you plentiful of gold if you are able to answer his riddle.");
+  var choiceChanceText3=("The man shares his riddle: ''I am tall when I am young, and I am short when I am old. What am I?'");
+  var twentyGold=(amountGold + 20);
+  var fiftyGold=(amountGold + 50);
+  function rightDoor() {
+    choice2=true;
+      output2.style.display = "none";
+      output3.style.display = "none";
+      output4.style.display = "none";
+      output5.style.display = "inline-block";
+      output6.style.display = "none";
+    var random1 = Number(random1);
+    var random1 = Math.random();
+    var max = 20;
+    var random1 = Math.floor(random1 * max);
+    console.log(random1);
+    alert (text4)
+    if (random1 <= 1) {
+      alert ("a tiny spider leaps down from the ceiling and bites you, you take 2+ dmg. You also feel slightly ashamed (+5 Shame)");
+      }
+      else if (random1 <= 3) {
+        alert("You search the room but find nothing... You also get bored by this fact (+5 Boredom)")
+      }
+      else if (random1 <= 5) {
+        alert ("You search the room and find a book with a symbols written all over it. The book itself is written in some sort of elvish and you are not able to translate it. You decide to put it in your backpack for the time being.");
+      }
+      else if (random1 <= 13) {
+      alert ("As you search through the room, you are able to find some gold! (+20 gold)");
+      console.log(amountGold + 20 + " gold");
+      }
+      else if (random1 > 15) {
+      alert (choiceChanceText1 + " "+ choiceChanceText2 + " "+ choiceChanceText3);
+      var answer = prompt("Choose wisely...");
+      var answer = answer.toLowerCase();
+      if (answer == "candle") {
+         alert ("That is correct. You receive 50 gold!");
+         console.log(amountGold + 50 + " gold");
+         output4.style.display="none";
+         output5.style.display="inline-block";
+      }
+      else {
+        alert ("That is not the correct answer. <br>The man laughs as he vanish into thin air and you are left with nothing but your thoughts...");
+        output4.style.display="none";
+        output5.style.display="inline-block";
+      }
+      }
+  }
+  function goBackLeft() {
+    choice1=true;
+    alert ("You go back into the hallway");
+    if (choice1) {
+    output2.style.display="none";
+    output3.style.display="inline-block";
+    output4.style.display="none";
+    output5.style.display="none";
+    output6.style.display="none";
+    }
+    if ((choice1==true) && (choice2==true)) {
+    output2.style.display="none";
+    output3.style.display="none";
+    output4.style.display="none";
+    output5.style.display="none";
+    output6.style.display="inline-block";
+    alert("There is no more rooms to search so your gaze turns towards the stairs.");
+  }
+  }
+  function goBackRight() {
+    choice2=true;
+    alert ("You go back into the hallway");
+    if (choice2) {
+    output2.style.display="inline-block";
+    output3.style.display="none";
+    output4.style.display="none";
+    output5.style.display="none";
+    output6.style.display="none";
+    }
+    if ((choice1==true) && (choice2==true)) {
+    output2.style.display="none";
+    output3.style.display="none";
+    output4.style.display="none";
+    output5.style.display="none";
+    output6.style.display="inline-block";
+    alert("There are no more rooms to search so your gaze turns towards the stairs.");
+  }
+  }
+  function goUpStairs() {
+    alert ("You go up the stairs not knowning where it leads");
+    choice1=true;
+    choice2=true;
+    console.log(choice1);
+    console.log(choice2);
+    output2.style.display="none";
+    output3.style.display="none";
+    output4.style.display="none";
+    output5.style.display="none";
+    output6.style.display="none";
+  }
+  </script>
+  </div>
+</body>
+</html>
