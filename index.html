@@ -25,11 +25,14 @@
   }
   .titleHeading {
     margin:10px;
+    width: 600px;
     font-family:papyrus;
     font-variant: small-caps;
     font-style: normal;
     color: rgb(255, 235, 167);
     text-shadow: 2px 2px 20px rgb(255, 166, 0);
+    display:inline-block;
+    text-align: center;
   }
   .styleButton {
     font-size: 30px;
@@ -48,38 +51,75 @@
     margin:10px;
     display: inline-block;
   }
-  .logoDiv {
-    color:rgb(255, 166, 0);
+  .headerLogoStyle{
+    color:rgb(255, 187, 97);
     text-align: left;
     width: 200px;
     height: 100px;
-    margin:10px;
+    margin-left:10px;
     border-style: double;
-    border-color: aquamarine;
+    border-color: rgb(255, 166, 0);
+  }
+  .headerTopStyle{
+    color:rgb(255, 187, 97);
+    text-align: left;
+    width: 600px;
+    height: 100px;
+    padding:5px;
+    margin-left:300px;
+    margin-top: -100px;
+    border-style: double;
+    border-color: rgb(255, 166, 0);
+  }
+  h1 {
+    padding-left: 5px;
   }
   .programDiv {
     border-color:white;
     border-style: groove;
+    margin-top: -400px;
+    margin-left: 300px;
+    padding: 5px;
     width:600px;
-    height: 300px;
+    height: 400px;
+    position:relative;
+  }
+  .sidebarDiv {
     display:inline-block;
+    width: 200px;
+    height: 400px;
+  }
+  .sidebarStyle {
+    color:rgb(255, 187, 97);
+    text-align: left;
+    width: 200px;
+    height: 400px;
+    margin-left: 10px;
+    padding: 5px;
+    border-style: double;
+    border-color: rgb(255, 166, 0);
   }
 </style>
 </head>
 <body>
 <div>
-  <h1 class="logoDiv">Logo</h1>
-</div>
-<h1 id="title" class="titleHeading">An Adventure In The Dark</h1> 
-<div class="programDiv">
-<button id="start" class="Button" onclick="start()">Start</button>
-<button id="leftdoor" class="Button" onclick="leftDoor()">Go through the left door</button>
-<button id="rightdoor" class="Button" onclick="rightDoor()">Go through the right door</button>
-<button id="returnFromDoor1" class="Button" onclick="goBackLeft()">Go back</button>
-<button id="returnFromDoor2" class="Button" onclick="goBackRight()">Go back</button>
-<button id="stairs" class="styleButton" onclick="goUpStairs()">Go Upstairs</button>
+  <h1 class="headerLogoStyle">Logo</h1>
 </div>
 <div>
+  <h3 class="headerTopStyle">WIP STUFF</h3>
+</div>
+<div>
+  <h2 class="sidebarStyle">Sidebar</h2>
+</div>
+<div class="programDiv">
+  <div>
+    <h3 id="title" class="titleHeading">An Adventure In The Dark</h3> 
+    <button id="start" class="Button" onclick="start()">Start</button>
+    <button id="leftdoor" class="Button" onclick="leftDoor()">Go through the left door</button>
+    <button id="rightdoor" class="Button" onclick="rightDoor()">Go through the right door</button>
+    <button id="returnFromDoor1" class="Button" onclick="goBackLeft()">Go back</button>
+    <button id="returnFromDoor2" class="Button" onclick="goBackRight()">Go back</button>
+    <button id="stairs" class="styleButton" onclick="goUpStairs()">Go Upstairs</button>
 <script> 
   // saves the state of the variable
   var choice1 = false;
@@ -245,5 +285,6 @@
   }
   </script>
   </div>
+</div>
 </body>
 </html>
