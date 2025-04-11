@@ -9,7 +9,7 @@ Total time: 1 hour and 20 minutes.
 
 11/04-25 
 Total time: 4 hours. 
-- Intro Text is now a inside a <p> element instead of using alerts to output text to user (this might change later).
+- Created a (p) element instead of using alerts to output text to user (this might change later).
 - Some buttons has a basic animation when hovering over them. 
 - General changes to website layout. 
 - Basic design changes to text, backgrounds etc.
