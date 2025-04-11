@@ -18,3 +18,5 @@ The final program is not the goal! The aim of the project is to show how you hav
 # User Guide
 
 > Write a clear user guide for how someone should use your program.
+
+ ![candle-2038736_640](https://github.com/user-attachments/assets/e88136e4-d147-4f4f-86fe-5e866560b42c)
