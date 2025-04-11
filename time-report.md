@@ -3,6 +3,13 @@
 <!-- - 2022-10-24 18:00 Worked for 1 hour.
   - *List the things you have done.* -->
 03/04-25 
-- Worked on a basic layout for the website for 1 hour and 20 minutes.
-- Removed a couple of unnecessary normal brackets (took a couple of seconds).
+Total time: 1 hour and 20 minutes.  
+- Worked on a basic layout for the website.
+- Removed a couple of unnecessary normal brackets.
 
+11/04-25 
+Total time: 4 hours. 
+- Intro Text is now a inside a <p> element instead of using alerts to output text to user (this might change later).
+- Some buttons has a basic animation when hovering over them. 
+- General changes to website layout. 
+- Basic design changes to text, backgrounds etc.
