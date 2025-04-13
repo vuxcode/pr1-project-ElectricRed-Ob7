@@ -13,3 +13,12 @@ Total time: 4 hours.
 - Some buttons has a basic animation when hovering over them. 
 - General changes to website layout. 
 - Basic design changes to text, backgrounds etc.
+
+14/04-25
+Total time: 3 hours.
+- Added variables for unique items/objects/things happening so they can be use later in the program if needed. 
+- Added outputs for HP, equipment/items, damage (dps) and gold. 
+- Outputs for HP, damage etc gets updated if certain things happen.
+- Changed the design of buttons, they now look like they glow when you hover over them.
+- Two buttons now look like doors.
+- Grammar/spelling fixes and changes.
