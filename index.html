@@ -76,7 +76,7 @@
     transition-duration: 2000ms;
   }
   .rightDoorButton {
-    background-color: rgb(44,50,39);
+    background-color: rgb(20, 20, 20);
     border-color: rgb(23, 35, 53);
     border-style:solid;
     color: rgb(255, 94, 0);
@@ -90,9 +90,9 @@
     transition-duration: 2000ms;
   }
   .rightDoorButton:hover {
-    background-color: rgb(78, 88, 70);
+    background-color: rgb(34, 34, 34);
     transition-duration: 2000ms;
-    border-color: rgb(0, 15, 100);
+    border-color: rgb(36, 55, 161);
     border-style:solid;
     border-radius: 10px;
     border-width: 10px;
@@ -101,6 +101,34 @@
     text-align: center;
     width: 200px;
     height: 400px;
+  }
+  .downstairsButton {
+    transition-duration: 2000ms;
+    background-color:rgb(0, 0, 0);
+    background: radial-gradient(black, rgb(24, 24, 24));
+    border-color: rgb(29, 29, 29);
+    border-style:solid;
+    border-radius: 10px;
+    border-width: 10px;
+    margin:10px;
+    display: inline-block;
+    text-align: center;
+    width: 200px;
+    height: 200px;
+  }
+  .downstairsButton:hover {
+    transition-duration: 2000ms;
+    background-color:rgb(39, 39, 39);
+    border-color: rgb(134, 134, 134);
+    border-style:solid;
+    border-radius: 10px;
+    border-width: 10px;
+    margin:10px;
+    display: inline-block;
+    text-align: center;
+    width: 400px;
+    height: 400px;
+    
   }
   .titleHeading {
     margin:10px;
@@ -116,8 +144,6 @@
     border-radius: 7px;
     text-align: center;
     background: radial-gradient(rgba(255, 94, 0, 0.411),rgba(88, 0, 0, 0.404));
-    transition-duration:2000ms;
-    transition-delay: 2000ms;
   }
   .styleButton {
     font-size: 15px;
@@ -198,35 +224,55 @@
     font-family:'Times New Roman', Times, serif;
     color:rgb(255, 229, 83);
     display:block;
-    margin-top: 20px;
+    margin-top: 15px;
   }
   .damageDisplay {
     font-size:25px;
     font-family:'Times New Roman', Times, serif;
     color:rgb(255, 229, 83);
     display:block;
-    margin-top: 20px;
+    margin-top: 15px;
   }
   .healthDisplay {
     font-size:25px;
     font-family:'Times New Roman', Times, serif;
     color:rgb(255, 229, 83);
     display:block;
-    margin-top: 20px;
+    margin-top: 15px;
   }
   .weaponDisplay {
     font-size:25px;
     font-family:'Times New Roman', Times, serif;
     color:rgb(255, 229, 83);
     display:block;
-    margin-top: 20px;
+    margin-top: 15px;
   }
   .equipmentDisplay {
     font-size:25px;
     font-family:'Times New Roman', Times, serif;
     color:rgb(255, 229, 83);
     display:block;
-    margin-top: 20px;
+    margin-top: 15px;
+  }
+  .doorTextStyle {
+    font-size: 17px;
+    font-weight: bolder;
+    font-family: papyrus;
+    margin:1px;
+    color:rgb(255, 208, 0);
+    text-shadow: 1px 1px 10px rgb(255, 102, 0); 
+    transition-delay: 1000ms;
+    transition-duration: 1000ms;
+  }
+  .insideDoorStyle {
+    font-size: 17px;
+    font-weight: bolder;
+    font-family: papyrus;
+    margin:1px;
+    color:rgb(255, 208, 0);
+    text-shadow: 1px 1px 10px rgb(255, 102, 0); 
+    transition-delay: 1000ms;
+    transition-duration: 1000ms;
   }
 </style>
 </head>
@@ -247,18 +293,20 @@
     <p id="intro" class="introText">
       You are an adventurer, lost in a dark forest. 
       You try to look around to find any landmarks, when you spot the shadowy figure of an old church, towering over the old and crooked trees.
-      The boom of a lightning strike breaks the silence of the dead forest, so you decide that the best course of action would be to seek shelter in the church.
-      As you enter the church, you realise that it has been abandoned for a significant amount of time as you can see there are cracks in the floor and all the furniture has started to fall apart. 
-      You look around, not able to find anything, but that's when you see two doors that is positioned to the left and right of a staircase that leads down into a void of blackness.
-      The left door is made of mahogany and has a red glow to it and the right door is made of ebony wood with a blue glow to it.
+      The boom of a lightning strike breaks the silence of the dead forest, so you decide that the best course of action would be to seek shelter in the church. <br>
+      <br>As you enter the church, you realise that it has been abandoned for a significant amount of time as you can see there are cracks in the floor and all the furniture has started to fall apart. 
+      You look around, not able to find anything, but that's when you see two doors that is positioned to the left and right of a staircase that leads down into a void of blackness.<br>
+      <br>The left door is made of mahogany and has a red glow to it and the right door is made of ebony wood with a blue glow to it.
       The staircase is made of black coloured granite, and the black void that is at the bottom of it fills you with dread.
     </p>
+    <p id="doorText" class="doorTextStyle">Your curiosity gets the better of you and decide that you want to look inside the two doors. Which one do you pick first?</p>
+    <p id="insideDoor" class="insideDoorStyle">There is nothing left for you here...</p>
     <button id="continue" class="Button" onclick="continueButton()">Continue</button>
     <button id="leftdoor" class="leftDoorButton" onclick="leftDoor()"></button>
     <button id="rightdoor" class="rightDoorButton" onclick="rightDoor()"></button>
     <button id="returnFromDoor1" class="Button" onclick="goBackLeft()">Go back</button>
     <button id="returnFromDoor2" class="Button" onclick="goBackRight()">Go back</button>
-    <button id="stairs" class="Button" onclick="goDownStairs()">Go downstairs</button>
+    <button id="stairs" class="downstairsButton" onclick="goDownStairs()"></button>
     <h1 id ="healthPoints" class="healthDisplay">100 HP</h1>
     <h1 id ="damageMeter" class="damageDisplay">1 Damage</h1>
     <h1 id="amountOfGold" class="goldDisplay">0 Gold</h1>
@@ -272,12 +320,14 @@
   // Find an element with the matching ID
   var outputIntro = document.getElementById("intro");
   var outputContinue = document.getElementById("continue");
+  var outputDoor = document.getElementById("doorText");
   var outputGold = document.getElementById("amountOfGold");
   var outputDamage = document.getElementById("damageMeter");
   var outputHealth = document.getElementById("healthPoints");
   var outputDice = document.getElementById("diceRoll");
   var outputWeapon = document.getElementById("weapon");
   var outputEquipment = document.getElementById("equipment");
+  var outputInsideDoor = document.getElementById("insideDoor");
   var output0 = document.getElementById("title");
   var output1 = document.getElementById("start");
   var output2 = document.getElementById("leftdoor");
@@ -318,11 +368,13 @@
   // hides the the element(s) with the matching id(s)
   outputIntro.style.display="none";
   outputContinue.style.display="none";
+  outputDoor.style.display="none";
   outputGold.style.display="none";
   outputDamage.style.display="none";
   outputHealth.style.display="none";
   outputWeapon.style.display="none";
   outputEquipment.style.display="none";
+  outputInsideDoor.style.display="none";
   output2.style.display="none";
   output3.style.display="none";
   output4.style.display="none";
@@ -348,10 +400,13 @@
     outputHealth.style.display="block";
     outputWeapon.style.display="block";
     outputEquipment.style.display="block";
+    outputDoor.style.display="inline-block";
   }
   function leftDoor() {
     choice1=true;
+    outputInsideDoor.style.display="block";
     outputIntro.style.display="none";
+    outputDoor.style.display="none";
     output2.style.display="none";
     output3.style.display="none";
     output4.style.display="inline-block";
@@ -365,7 +420,7 @@
       hitHead = true;
       alert ("As you walk into the room you manage to hit your head against the doorframe, you take +1 damage and wonder why the hell you are so clumsy...");
       document.getElementById("healthPoints").innerHTML="99 HP";
-      if (tinyspider && hithead) {
+      if (tinySpider && hithead) {
         document.getElementById("healthPoints").innerHTML="98 HP";
       }
     }
@@ -397,6 +452,8 @@
   var choiceChanceText3="The man shares his riddle: ''I am tall when I am young, and I am short when I am old. What am I?'";
   function rightDoor() {
     choice2=true;
+      outputInsideDoor.style.display="block";
+      outputDoor.style.display="none";
       outputIntro.style.display="none";
       output2.style.display = "none";
       output3.style.display = "none";
@@ -409,7 +466,7 @@
     alert (rightDoorText);
     if (dice <= 1) {
       alert ("a tiny spider leaps down from the ceiling and bites you, you take +1 dmg.");
-      var tinySpider = true;
+      tinySpider = true;
       document.getElementById("healthPoints").innerHTML="99 HP";
       if ((hitHead) && (tinySpider)) {
         document.getElementById("healthPoints").innerHTML="98 HP";
@@ -426,7 +483,7 @@
         document.getElementById("equipment").innerHTML="Equipment: Shovel, Pickaxe, Strange book";
       }
       }
-      else if (dice <= 13) {
+      else if (dice <= 15) {
       alert ("As you search through the room, you are able to find some gold! (+20 gold)");
       // Updates the text in the html element
       document.getElementById("amountOfGold").innerHTML="20 gold";
@@ -446,7 +503,7 @@
          output5.style.display="inline-block";
       }
       else {
-        alert ("That is not the correct answer. <br>The man laughs as he vanish into thin air and you are left with nothing but your thoughts...");
+        alert ("That is not the correct answer. The man laughs at your incompetence as he vanish into thin air and you are left with nothing but your thoughts...");
         output4.style.display="none";
         output5.style.display="inline-block";
       }
@@ -461,6 +518,7 @@
     output4.style.display="none";
     output5.style.display="none";
     output6.style.display="none";
+    outputInsideDoor.style.display="none";
     }
     if ((choice1) && (choice2)) {
     output2.style.display="none";
@@ -480,6 +538,7 @@
     output4.style.display="none";
     output5.style.display="none";
     output6.style.display="none";
+    outputInsideDoor.style.display="none";
     }
     if ((choice1) && (choice2)) {
     output2.style.display="none";
