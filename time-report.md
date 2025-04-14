@@ -22,3 +22,9 @@ Total time: 3 hours.
 - Changed the design of buttons, they now look like they glow when you hover over them.
 - Two buttons now look like doors.
 - Grammar/spelling fixes and changes.
+
+15/04-25
+Total time: 1 hours
+- Added some additional text for better user experience.
+- The Downstairs button has a unique design now.
+- Fixed some errors in the code (variable(s) not being spelled correctly).
