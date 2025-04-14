@@ -385,10 +385,7 @@
       rareSword = true;
       alert ("As you search the room, you eventually find a sword tucked away in a chest and as you inspect it you see that there are markings engraved on the hilt, but you do not understand its meaning. You decide to grab it and your damage increases. (+2 dmg)");
       document.getElementById("damageMeter").innerHTML="3 Damage";
-      document.getElementById("equipment").innerHTML="Equipment: Steel Sword";
-      if ((rareSword) && (strangeBook)) {
-        document.getElementById("equipment").innerHTML="Equipment: Steel Sword, Strange book";
-      }
+      document.getElementById("weapon").innerHTML="Weapon: Steel Sword";
     }
     else if (dice > 19) {
       alert ("You see a tiny statue across the room and as you touch you feel a surge of energy flow through you! Your damage greatly increases. (+4 dmg)");
@@ -427,9 +424,6 @@
         document.getElementById("equipment").innerHTML="Equipment: Strange book";
         if ((pickAxeShovel) && (strangeBook)) {
         document.getElementById("equipment").innerHTML="Equipment: Shovel, Pickaxe, Strange book";
-        if ((rareSword) && (strangeBook)) {
-        document.getElementById("equipment").innerHTML="Equipment: Steel Sword, Strange book";
-      }
       }
       }
       else if (dice <= 13) {
