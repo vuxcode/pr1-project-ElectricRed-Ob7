@@ -28,3 +28,9 @@ Total time: 1 hours
 - Added some additional text for better user experience.
 - The Downstairs button has a unique design now.
 - Fixed some errors in the code (variable(s) not being spelled correctly).
+
+- 26/04-25
+  Total time 30 mins
+  - Added a delay to the press of the buttons.
+  - Added additional text to progress story.
+   
