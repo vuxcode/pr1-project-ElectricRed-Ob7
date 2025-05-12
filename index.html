@@ -323,20 +323,43 @@
     border-width: 10px;
     transition-duration: 500ms;
   }
+    .skeletonStyle {
+      width:150px;
+      height:150px;
+      margin:10px;
+      background:repeating-linear-gradient(to top,rgb(95, 95, 95) 30% , rgb(192, 192, 192) 40%), rgb(27, 27, 27) 20%;
+      color:rgb(255, 88, 88);
+      text-shadow: 1px 1px 2px black;
+      font-size: 40px;
+      border-color:rgb(126, 126, 126);
+      border-style: solid;
+      display:inline-block;
+      transition-duration: 500ms;
+     } 
+    .skeletonStyle:hover {
+      width:150px;
+      height:150px;
+      margin:10px;
+      background:repeating-linear-gradient(to top,rgb(131, 131, 131) 30% , rgb(255, 134, 134) 40%), rgb(63, 4, 4) 20%;
+      color:rgb(255, 0, 0);
+      text-shadow: 1px 1px 2px black;
+      display:inline-block;
+      transition-duration:500ms;
+     }
 </style>
 </head>
 <body>
-<div>
-  <h1 class="headerLogoStyle">Logo</h1>
-</div>
-<div>
-  <h3 class="headerTopStyle">WIP STUFF</h3>
-</div>
-<div>
-  <h2 class="sidebarStyle">Sidebar</h2>
-</div>
-<div class="programDiv">
   <div>
+    <h1 class="headerLogoStyle">Logo</h1>
+   </div>
+  <div>
+    <h3 class="headerTopStyle">WIP STUFF</h3>
+  </div>
+  <div>
+    <h2 class="sidebarStyle">Sidebar</h2>
+  </div>
+  <div class="programDiv">
+    <div>
     <h3 id="title" class="titleHeading">An Adventure In The Dark</h3> 
     <button id="start" class="Button" onclick="setTimeout(start, 150)">Start</button>
     <p id="intro" class="introText">
@@ -360,12 +383,14 @@
     <button id="stairs" class="downstairsButton" onclick="setTimeout(goDownStairs, 150)"></button>
     <button id="basementDoor" class="basementButton" onclick="setTimeout(basement,150)"></button>
     <button id="cathedralButton" class="cathedralButtonStyle" onclick="setTimeout(cathedral,150)"></button>
+    <button id="skeleton1" class="skeletonStyle" onclick="skeletonButton1()">20 HP</button>
+    <button id="skeleton2" class="skeletonStyle" onclick="skeletonButton2()">20 HP</button>
     <h1 id ="healthPoints" class="healthDisplay">100 HP</h1>
     <h1 id ="damageMeter" class="damageDisplay">1 Damage</h1>
     <h1 id="amountOfGold" class="goldDisplay">0 Gold</h1>
     <h1 id="weapon" class="weaponDisplay">Weapon: Melee</h1>
     <h1 id="equipment" class="equipmentDisplay">Equipment: Nothing</h1>
-<script> 
+  <script> 
   // Create a variable and save the state of it. 
   var goThroughLeftDoor= false;
   var goThroughRightDoor= false;
@@ -376,12 +401,14 @@
   var outputGold = document.getElementById("amountOfGold");
   var outputDamage = document.getElementById("damageMeter");
   var outputHealth = document.getElementById("healthPoints");
-  var outputDice = document.getElementById("diceRoll");
+  //var outputDice = document.getElementById("diceRoll");//
   var outputWeapon = document.getElementById("weapon");
   var outputEquipment = document.getElementById("equipment");
   var outputInsideDoor = document.getElementById("insideDoor");
   var outputBasementText = document.getElementById("basementText");
   var outputBasementDoor = document.getElementById("basementDoor");
+  var outputSkeleton1 = document.getElementById("skeleton1");
+  var outputSkeleton2 = document.getElementById("skeleton2");
   var output0 = document.getElementById("title");
   var output1 = document.getElementById("start");
   var output2 = document.getElementById("leftdoor");
@@ -395,7 +422,6 @@
   var rightDoorText = "You decide to go through the right door.";
   // create variable for health points.
   var healthPoints = 100;
-  healthPoints = Number (healthPoints);
   // create variable for damage.
   var damage = 1;
   // update to use any number
@@ -431,6 +457,8 @@
   outputBasementDoor.style.display="none";
   outputCathedralText.style.display="none";
   outputCathedralButton.style.display="none";
+  outputSkeleton1.style.display="none";
+  outputSkeleton2.style.display="none";
   // check state of variable in console
   console.log(goThroughLeftDoor);
   console.log(goThroughRightDoor);
@@ -626,9 +654,79 @@
     alert ("As you look around you hear a noise...and as you turn around you see two skeleton warriors stumbling towards you!");
     outputCathedralText.style.display="none";
     outputCathedralButton.style.display="none";
+    outputSkeleton1.style.display="inline-block";
+    outputSkeleton2.style.display="inline-block";
   }
-  </script>
+var dice2 = Number(dice2);
+var dice2 = Math.random();
+var dice2 = Math.floor(dice2 * max);
+var skeletonHP1=20;
+var skeletonHP2=20;
+function skeletonButton1() {
+dice = Math.random();
+dice = Math.floor(dice * max);
+console.log(dice);
+if (dice>=5) {
+alert("Your attack does 3 damage!");
+skeletonHP1=skeletonHP1-=3;
+document.getElementById("skeleton1").innerHTML=skeletonHP1 + " HP";
+}
+else {
+  alert("Your attack miss!");
+}
+var skeleton1turn = setTimeout(skeletonAttack1, 500);
+function skeletonAttack1() {
+  dice2 = Math.random();
+  dice2 = Math.floor(dice2 * max);
+  console.log(dice2);
+  if (dice2>=7) {
+  alert ("Skeleton Swordsman attack hits you for 1 damage!");
+  healthPoints=healthPoints-1;
+  document.getElementById("healthPoints").innerHTML=healthPoints + " HP";
+  }
+  else {
+  alert ("Skeleton Swordsman attack misses!");
+}
+}
+if (skeletonHP1<=0) {
+  var skeleton1Victory = true;
+  outputSkeleton1.style.display="none";
+}
+}
+function skeletonButton2() {
+dice = Math.random();
+dice = Math.floor(dice2 * max);
+dice2 = Math.random();
+dice2 = Math.floor(dice2 * max);
+if (dice>=5) {
+alert("Your attack does 3 damage!");
+skeletonHP2=skeletonHP2-=3;
+document.getElementById("skeleton2").innerHTML=skeletonHP2 + " HP";
+}
+else {
+  alert("Your attack miss!");
+}
+var skeleton2turn = setTimeout(skeletonAttack2, 500);
+function skeletonAttack2() {
+dice2 = Math.random();
+dice2 = Math.floor(dice2 * max);
+console.log(dice2);
+if (dice2>=7) {
+  alert ("Skeleton Spearman attack hits you for 1 damage!");
+  healthPoints=healthPoints-1;
+  document.getElementById("healthPoints").innerHTML=healthPoints + " HP";
+ }
+else {
+ alert ("Skeleton Spearman attack misses!");
+ }
+}
+if (skeletonHP2<=0) { 
+  var skeleton2Victory = true;
+  outputSkeleton2.style.display="none";
+}
+}
+    </script>
+    </div>
   </div>
-</div>
 </body>
 </html>
