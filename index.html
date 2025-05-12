@@ -139,8 +139,8 @@
     transition-duration: 500ms;
   }
   .basementButton:hover {
-    width: 220px;
-    height: 420px;
+    width: 210px;
+    height: 410px;
     background: radial-gradient(rgba(139, 96, 30, 0.856), rgb(0, 0, 0));
     border-style:solid;
     border-radius: 5px;
@@ -296,6 +296,33 @@
     color:rgb(255, 212, 23);
     text-shadow: 1px 1px 5px rgb(255, 51, 0); 
   }
+  .cathedralButtonStyle {
+    font-size: 25px;
+    background:repeating-linear-gradient(to right,rgb(0, 0, 0), rgb(49, 32, 8), black);
+    border-color: rgb(51, 51, 51);
+    border-style: solid;
+    border-radius: 10px;
+    margin:10px;
+    display: inline-block;
+    width: 300px;
+    height: 300px;
+    border-width: 10px;
+    transition-duration: 500ms;
+  }
+  .cathedralButtonStyle:hover {
+    font-size: 25px;
+    background:repeating-linear-gradient(to right,rgb(0, 0, 0), rgb(99, 64, 18), black);
+    border-color: rgb(80, 80, 80);
+    border-style: solid;
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+    margin:10px;
+    display: inline-block;
+    width: 310px;
+    height: 310px;
+    border-width: 10px;
+    transition-duration: 500ms;
+  }
 </style>
 </head>
 <body>
@@ -332,6 +359,7 @@
     <button id="returnFromDoor2" class="Button" onclick="setTimeout(goBackRight, 150)">Go back</button>
     <button id="stairs" class="downstairsButton" onclick="setTimeout(goDownStairs, 150)"></button>
     <button id="basementDoor" class="basementButton" onclick="setTimeout(basement,150)"></button>
+    <button id="cathedralButton" class="cathedralButtonStyle" onclick="setTimeout(cathedral,150)"></button>
     <h1 id ="healthPoints" class="healthDisplay">100 HP</h1>
     <h1 id ="damageMeter" class="damageDisplay">1 Damage</h1>
     <h1 id="amountOfGold" class="goldDisplay">0 Gold</h1>
@@ -341,7 +369,6 @@
   // Create a variable and save the state of it. 
   var goThroughLeftDoor= false;
   var goThroughRightDoor= false;
-  var rareSword = false;
   // Find an element with the matching ID
   var outputIntro = document.getElementById("intro");
   var outputContinue = document.getElementById("continue");
@@ -362,6 +389,7 @@
   var output4 = document.getElementById("returnFromDoor1");
   var output5 = document.getElementById("returnFromDoor2");
   var output6 = document.getElementById("stairs");
+  var outputCathedralButton = document.getElementById("cathedralButton");
   // create variable with a specific text to be use as an output. 
   var leftDoorText = "You decide to go through the left door.";
   var rightDoorText = "You decide to go through the right door.";
@@ -377,8 +405,11 @@
   var max = 20;
   var gold=0;
   var gold=Number(gold);
+  // variables for different items to be used later in the program
+  var rareSword = false;
   var pickAxeShovel = false;
   var strangeBook = false;
+  // variables to be used later in program 
   var hitHead = false;
   var tinySpider = false;
   // hides the the element(s) with the matching id(s)
@@ -399,6 +430,7 @@
   outputBasementText.style.display="none";
   outputBasementDoor.style.display="none";
   outputCathedralText.style.display="none";
+  outputCathedralButton.style.display="none";
   // check state of variable in console
   console.log(goThroughLeftDoor);
   console.log(goThroughRightDoor);
@@ -472,14 +504,14 @@
   function rightDoor() {
     // Updates the right door variable to true 
     goThroughRightDoor=true;
-      outputInsideDoor.style.display="block";
-      outputDoor.style.display="none";
-      outputIntro.style.display="none";
-      output2.style.display = "none";
-      output3.style.display = "none";
-      output4.style.display = "none";
-      output5.style.display = "inline-block";
-      output6.style.display = "none";
+    outputInsideDoor.style.display="block";
+    outputDoor.style.display="none";
+    outputIntro.style.display="none";
+    output2.style.display = "none";
+    output3.style.display = "none";
+    output4.style.display = "none";
+    output5.style.display = "inline-block";
+    output6.style.display = "none";
     var dice = Math.random();
     var dice = Math.floor(dice * max);
     console.log(dice);
@@ -588,6 +620,12 @@
   outputCathedralText.style.display="inline-block";
   outputBasementDoor.style.display="none";
   outputBasementText.style.display="none";
+  outputCathedralButton.style.display="inline-block";
+  }
+  function cathedral() {
+    alert ("As you look around you hear a noise...and as you turn around you see two skeleton warriors stumbling towards you!");
+    outputCathedralText.style.display="none";
+    outputCathedralButton.style.display="none";
   }
   </script>
   </div>
