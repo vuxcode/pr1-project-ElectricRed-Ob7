@@ -354,6 +354,21 @@
     background-color: rgba(255, 123, 0, 0.589);
     text-shadow: 1px 1px 5px orangered;
   }
+  .tbcStyle {
+    color:rgb(255, 145, 0);
+    font-size: 25px;
+    text-align: left;
+    display:inline-block;
+    font-style: italic;
+    width: 120px;
+    height: 40px;
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-bottom:10px;
+    padding:5px;
+    text-decoration: none;
+    border-radius: 10px;
+  }
   </style>
 </head>
 <body>
@@ -396,6 +411,7 @@
       <h1 id="amountOfGold" class="goldDisplay">0 Gold</h1>
       <h1 id="weapon" class="weaponDisplay">Weapon: Melee</h1>
       <h1 id="equipment" class="equipmentDisplay">Equipment: Nothing</h1>
+      <h1 id="tbc" class="tbcStyle">To be continued...</h1>
       <script> 
         // Create a variable and save the state of it. 
         var goThroughLeftDoor= false;
@@ -426,6 +442,7 @@
         var outputAfterFight1=document.getElementById("afterFightButton1");
         var outputAfterFight2=document.getElementById("afterFightButton2");
         var outputAfterFightText=document.getElementById("afterFightText");
+        var outputTBC=document.getElementById("tbc");
         // create variable with a specific text to be use as an output. 
         var leftDoorText = "You decide to go through the left door.";
         var rightDoorText = "You decide to go through the right door.";
@@ -472,6 +489,7 @@
         outputAfterFight1.style.display="none";
         outputAfterFight2.style.display="none";
         outputAfterFightText.style.display="none";
+        outputTBC.style.display="none";
         // check state of variable in console
         console.log(goThroughLeftDoor);
         console.log(goThroughRightDoor);
@@ -496,8 +514,9 @@
           outputEquipment.style.display="block";
           outputDoor.style.display="inline-block";
         }
-        //
+        //function for the leftdoor button 
         function leftDoor() {
+          //updates the value 
           goThroughLeftDoor=true;
           outputInsideDoor.style.display="block";
           outputIntro.style.display="none";
@@ -507,16 +526,24 @@
           output4.style.display="inline-block";
           output5.style.display="none";
           output6.style.display="none";
+          // Picks a random number
           var dice = Math.random();
+          // Picks a random  from 0 to 20 
           var dice = Math.floor(dice * max);
           console.log (dice);
+          // Shows an alert to the user when pressing the left door button
           alert (leftDoorText);
+          // Dice roll or number picked determines the outcome/output for the user
+          // Any number that is between 0-3 = bad for user
+          // Any number that is above 3 = good/ok for user
           if (dice <= 1) {
             hitHead = true;
             alert ("As you walk into the room you manage to hit your head against the doorframe, you take +1 damage and wonder why the hell you are so clumsy...");
-            document.getElementById("healthPoints").innerHTML="99 HP";
-            if (tinySpider && hithead) {
-              document.getElementById("healthPoints").innerHTML="98 HP";
+            //updates the value of the variable and the value inside the html element. 
+            document.getElementById("healthPoints").innerHTML=healthPoints-1 + " HP";
+            // When both variables are true, 
+            if ((tinySpider) && (hithead)) {
+              document.getElementById("healthPoints").innerHTML=healthPoints-2 + " HP";
             }
           }
           else if (dice <= 3) {
@@ -542,7 +569,7 @@
             document.getElementById("damageMeter").innerHTML="5 Damage";
           }
         }
-        // Variables for text that user has a chance of getting
+        // Variables containing text that user has a chance of getting
         var choiceChanceText1="As you walk into the room, you realise you are not alone. A man is standing in the middle of the room with a crazed smile on his face.";
         var choiceChanceText2="He offers you plentiful of gold if you are able to answer his riddle.";
         var choiceChanceText3="The man shares his riddle: ''I am tall when I am young, and I am short when I am old. What am I?'";
@@ -564,9 +591,9 @@
           if (dice <= 1) {
             alert ("a tiny spider leaps down from the ceiling and bites you, you take +1 dmg.");
             tinySpider = true;
-            document.getElementById("healthPoints").innerHTML="99 HP";
+            document.getElementById("healthPoints").innerHTML=healthPoints-1 + " HP";
             if ((hitHead) && (tinySpider)) {
-              document.getElementById("healthPoints").innerHTML="98 HP";
+              document.getElementById("healthPoints").innerHTML=healthPoints-2 + " HP";
             }
           } 
           else if (dice <= 3) {
@@ -574,6 +601,7 @@
           }
           else if (dice <= 7) {
             alert ("You search the room and find a book with symbols written all over it. The book itself is written in some sort of elvish and you are not able to translate it. You decide to put it in your backpack for the time being.");
+            // Update the variable to be used later in the program (its not used as of now)
             strangeBook = true;
             document.getElementById("equipment").innerHTML="Equipment: Strange book";
             if ((pickAxeShovel) && (strangeBook)) {
@@ -585,22 +613,30 @@
             // Updates the text in the html element
             document.getElementById("amountOfGold").innerHTML="20 gold";
           }
+          // Any number above 15 shows unique output to user
           else if (dice > 15) {
+            // Text for a riddle that the user is supposed to solve.
             alert (choiceChanceText1 + " "+ choiceChanceText2 + " "+ choiceChanceText3);
+            // Creates a prompt
             var answer = prompt("Choose wisely...");
+            // Anything the user types will be converted to lowercase
             var answer = answer.toLowerCase();
+            // If the user guess is correct, they will be rewarded
             if (answer == "candle") {
               alert ("That is correct. You receive 50 gold!");
               // output in console so you can see its working as intended
               console.log(gold + 50 + " gold");
               // Updates the text in the html element
               document.getElementById("amountOfGold").innerHTML="50 gold";
-              // hides elements
+              // hides button + displays button and continues the program.
               output4.style.display="none";
               output5.style.display="inline-block";
             }
+            // Wrong answer means that the user is not rewarded
+            // And the program continues
             else {
               alert ("That is not the correct answer. The man laughs at your incompetence as he vanish into thin air and you are left with nothing but your thoughts...");
+              // Hides button + display button and continues the program.
               output4.style.display="none";
               output5.style.display="inline-block";
             }
@@ -610,6 +646,8 @@
         function goBackLeft() {
           goThroughLeftDoor=true;
           alert ("You go back into the hallway");
+          // Hides every element that was previously shown to the user
+          // And display the "Go back" button
           if (goThroughLeftDoor) {
             output2.style.display="none";
             output3.style.display="inline-block";
@@ -618,6 +656,7 @@
             output6.style.display="none";
             outputInsideDoor.style.display="none";
           }
+          // if user has gone through both doors, continue the program
           if ((goThroughLeftDoor) && (goThroughRightDoor)) {
             output2.style.display="none";
             output3.style.display="none";
@@ -639,6 +678,7 @@
             output6.style.display="none";
             outputInsideDoor.style.display="none";
           }
+          // if user has gone through both doors, continue the program
           if ((goThroughLeftDoor) && (goThroughRightDoor)) {
             output2.style.display="none";
             output3.style.display="none";
@@ -652,10 +692,6 @@
         // Stylized as stairs and doors
         function goDownStairs() {
           alert ("You decide to go down the stairs, not knowning where it leads...");
-          goThroughLeftDoor=true;
-          goThroughRightDoor=true;
-          console.log(goThroughLeftDoor);
-          console.log(goThroughRightDoor);
           output2.style.display="none";
           output3.style.display="none";
           output4.style.display="none";
@@ -678,7 +714,9 @@
           outputSkeleton1.style.display="inline-block";
           outputSkeleton2.style.display="inline-block";
         }
-        //skeleton fight
+        // Skeleton fight
+        // Skeleton gets own dice in order 
+        // to roll any number between 0 to 20
         var dice2 = Number(dice2);
         var dice2 = Math.random();
         var dice2 = Math.floor(dice2 * max);
@@ -687,31 +725,45 @@
         var skeleton1Victory = false;
         var skeleton2Victory = false;
         function skeletonButton1() {
+        // Uses the same "dice roll" as before
         dice = Math.random();
         dice = Math.floor(dice * max);
         console.log(dice);
+         // Create condition when two variables are true
+         // Update the value of the html element or the "hp" of the skeletons
           if ((dice>=5) && (damage=5)) {
             alert("Your attack does 5 damage!");
             skeletonHP1=skeletonHP1-=5;
             document.getElementById("skeleton1").innerHTML=skeletonHP1 + " HP";
           }
+          // If user roll <5, the value doesnt update 
+          // And the user "miss" their attack
           else {
             alert("Your attack miss!");
           }
+        // Creates a basic turn based system
+        // When the user attacks, there is a slight delay
+        // And the skeleton fights back
         var skeleton1turn = setTimeout(skeletonAttack1, 500);
           function skeletonAttack1() {
+            // Skeleton uses own set of dice
+            // to determine outcome of their attack (if they hit or miss)
             dice2 = Math.random();
             dice2 = Math.floor(dice2 * max);
             console.log(dice2);
+            // If dice lands on 7 or above, the Skeleton attack hits
             if (dice2>=7) {
               alert ("Skeleton Swordsman attack hits you for 3 damage!");
-              healthPoints=healthPoints-3;
+              healthPoints=healthPoints-=3;
               document.getElementById("healthPoints").innerHTML=healthPoints + " HP";
             }
+            // Anything less than 7 and the Skeleton's attack miss
             else {
-              alert ("Skeleton Swordsman attack misses!");
+              alert ("Skeleton Swordsman tries to attack, but it missed!");
             }
           }
+          // When the value of the variable is less than or is the same as 0 
+          // The button gets hidden
           if (skeletonHP1<=0) {
             skeleton1Victory = true;
             outputSkeleton1.style.display="none";
@@ -729,6 +781,7 @@
           dice2 = Math.floor(dice2 * max);
           if ((dice>=5) && (damage=5)) {
             alert("Your attack does 5 damage!");
+            // updates the variable 
             skeletonHP2=skeletonHP2-=5;
             document.getElementById("skeleton2").innerHTML=skeletonHP2 + " HP";
           }
@@ -742,65 +795,81 @@
             console.log(dice2);
           if (dice2>=7) {
             alert ("Skeleton Spearman attack hits you for 3 damage!");
-            healthPoints=healthPoints-3;
+            healthPoints=healthPoints-=3;
             document.getElementById("healthPoints").innerHTML=healthPoints + " HP";
           }
           else {
-            alert ("Skeleton Spearman attack misses!");
+            alert ("Skeleton Spearman tries to attack, but it missed!");
           }
           }
+          // When the value of the variable is less than or is the same as 0 
+          // The button gets hidden
           if (skeletonHP2<=0) { 
+            // updates the variable
             skeleton2Victory = true;
             outputSkeleton2.style.display="none";
           }
+          // When both skeletons are defeated, continue the program
           if ((skeleton1Victory) && (skeleton2Victory)) {
             outputAfterFightText.style.display="inline-block";
             outputAfterFight1.style.display="inline-block";
             outputAfterFight2.style.display="inline-block";
           }
         }
-      var mendSelf = false;
-      var lookForMeds = false;
-      // after the skeleton fight 
-      // user gets a chance to heal themselves
-      function mendingSelf() {
-      alert("You try to mend your wounds yourself");
-      mendSelf = true;
-      outputAfterFight1.style.display="none";
-      var dice = Math.random();
-      var dice = Math.floor(dice * max);
-      console.log (dice);
-      if (dice<=5) {
-       alert("You try to mend your wounds, but you fail to do so because you remember that you are not a doctor.");
-      }
-      else if (dice>5) {
-       alert("You sucessfully mend your wounds and you gain 10 HP!");
-       healthPoints=healthPoints+10;
-       document.getElementById("healthPoints").innerHTML=healthPoints+" HP";
-      }
-      if ((lookForMeds) && (mendSelf)) {
-        outputAfterFightText.style.display="none";
-      }
-      }
-      function lookForMedical() {
-      alert("You decide to look for medical supplies.");
-      lookForMeds = true;
-      outputAfterFight2.style.display="none";
-      var dice = Math.random();
-      var dice = Math.floor(dice * max);
-      console.log (dice);
-      if (dice<=5) {
-       alert("You search high and low for any sign of gauze or bandages, but you find nothing but dust and bones.");
-      }
-      else if (dice>5) {
-       alert("As you search the surrounding area, you find a chest filled with bandages, gauze and other medical supplies! You mend your wounds and gain 10 HP!");
-       healthPoints=healthPoints+10;
-       document.getElementById("healthPoints").innerHTML=healthPoints+" HP";
-      }
-      if ((lookForMeds) && (mendSelf)) {
-        outputAfterFightText.style.display="none";
-      }
-      }
+        // After the skeleton fight 
+        // user gets a chance to heal themselves
+        var mendSelf = false;
+        var lookForMeds = false;
+        function mendingSelf() {
+        alert("You try to mend your wounds yourself");
+        mendSelf = true;
+        outputAfterFight1.style.display="none";
+        var dice = Math.random();
+        var dice = Math.floor(dice * max);
+        console.log (dice);
+        if (dice<=5) {
+         alert("You try to mend your wounds, but you fail to do so because you remember that you are not a doctor.");
+        }
+        else if (dice>5) {
+         alert("You sucessfully mend your wounds and you gain 10 HP!");
+         healthPoints=healthPoints+10;
+         document.getElementById("healthPoints").innerHTML=healthPoints+" HP";
+        }
+        if ((lookForMeds) && (mendSelf)) {
+          outputAfterFightText.style.display="none";
+          outputDamage.style.display="none";
+          outputGold.style.display="none";
+          outputHealth.style.display="none";
+          outputWeapon.style.display="none";
+          outputEquipment.style.display="none";
+          outputTBC.style.display="inline-block";
+        }
+        }
+        function lookForMedical() {
+        alert("You decide to look for medical supplies.");
+        lookForMeds = true;
+        outputAfterFight2.style.display="none";
+        var dice = Math.random();
+        var dice = Math.floor(dice * max);
+        console.log (dice);
+        if (dice<=5) {
+         alert("You search high and low for any sign of gauze or bandages, but you find nothing but dust and bones.");
+        }
+        else if (dice>5) {
+         alert("As you search the surrounding area, you find a chest filled with bandages, gauze and other medical supplies! You mend your wounds and gain 10 HP!");
+         healthPoints=healthPoints+10;
+         document.getElementById("healthPoints").innerHTML=healthPoints+" HP";
+        }
+        if ((lookForMeds) && (mendSelf)) {
+          outputAfterFightText.style.display="none";
+          outputDamage.style.display="none";
+          outputGold.style.display="none";
+          outputHealth.style.display="none";
+          outputWeapon.style.display="none";
+          outputEquipment.style.display="none";
+          outputTBC.style.display="inline-block";
+        }
+        }
       </script>
     </div>
   </div>
