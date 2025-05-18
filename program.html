@@ -557,7 +557,7 @@
               document.getElementById("equipment").innerHTML="Equipment: Shovel, Pickaxe, Strange book";
             }
           }
-          else if (dice <= 19) {
+         /* else if (dice <=19) {
             // Update variable of sword to be true if user is lucky.
             rareSword = true;
             alert ("As you search the room, you eventually find a sword tucked away in a chest and as you inspect it you see that there are markings engraved on the hilt, but you do not understand its meaning. You decide to grab it and your damage increases. (+3 dmg)");
@@ -566,8 +566,8 @@
           }
           else if (dice > 19) {
             alert ("You see a tiny statue across the room and as you touch you feel a surge of energy flow through you! Your damage greatly increases. (+4 dmg)");
-            document.getElementById("damageMeter").innerHTML="5 Damage";
-          }
+            document.getElementById("damageMeter").innerHTML=damage + 4 + " Damage";
+          }*/
         }
         // Variables containing text that user has a chance of getting
         var choiceChanceText1="As you walk into the room, you realise you are not alone. A man is standing in the middle of the room with a crazed smile on his face.";
@@ -731,14 +731,14 @@
         console.log(dice);
          // Create condition when two variables are true
          // Update the value of the html element or the "hp" of the skeletons
-          if ((dice>=5) && (damage=5)) {
+          if (dice>=5) {
             alert("Your attack does 5 damage!");
             skeletonHP1=skeletonHP1-=5;
             document.getElementById("skeleton1").innerHTML=skeletonHP1 + " HP";
           }
           // If user roll <5, the value doesnt update 
           // And the user "miss" their attack
-          else {
+          else if (dice<5) {
             alert("Your attack miss!");
           }
         // Creates a basic turn based system
@@ -758,7 +758,7 @@
               document.getElementById("healthPoints").innerHTML=healthPoints + " HP";
             }
             // Anything less than 7 and the Skeleton's attack miss
-            else {
+            else if (dice2<7) {
               alert ("Skeleton Swordsman tries to attack, but it missed!");
             }
           }
@@ -776,16 +776,14 @@
         }  
         function skeletonButton2() {
           dice = Math.random();
-          dice = Math.floor(dice2 * max);
-          dice2 = Math.random();
-          dice2 = Math.floor(dice2 * max);
-          if ((dice>=5) && (damage=5)) {
+          dice = Math.floor(dice * max);
+          if (dice>=5) {
             alert("Your attack does 5 damage!");
             // updates the variable 
             skeletonHP2=skeletonHP2-=5;
             document.getElementById("skeleton2").innerHTML=skeletonHP2 + " HP";
           }
-          else {
+          else if (dice<5)  {
             alert("Your attack miss!");
           }
           var skeleton2turn = setTimeout(skeletonAttack2, 500);
@@ -798,7 +796,7 @@
             healthPoints=healthPoints-=3;
             document.getElementById("healthPoints").innerHTML=healthPoints + " HP";
           }
-          else {
+          else if (dice2<7) {
             alert ("Skeleton Spearman tries to attack, but it missed!");
           }
           }
