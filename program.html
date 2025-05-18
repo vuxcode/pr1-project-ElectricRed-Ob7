@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lane="en">
+<head>
+    <title>An Adventure In The Dark</title>
+    <style>
+    *{
+       margin:0px;
+       box-sizing: border-box;
+       background-color: black;
+       text-align: center;
+    }
+    .Button {
+    font-size: 25px;
+    background-color: rgb(0, 0, 0);
+    border-color: rgb(138, 138, 138);
+    border-style: solid;
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+    margin:10px;
+    display: inline-block;
+    width: 150px;
+    height: 100px;
+    border-width: 10px;
+  }
+  .Button:hover {
+    transition-duration: 500ms;
+    font-size: 25px;
+    color: rgb(165, 126, 43);
+    margin:10px;
+    border-radius:10px;
+    display: inline-block;
+    background-color: rgba(68, 29, 14, 0.589);
+    text-shadow: 1px 1px 5px rgb(255, 132, 49);
+    border-color: rgb(94, 67, 36);
+    border-style:solid;
+  }
+  .Button:active {
+    font-size: 25px;
+    color: rgb(255, 208, 0);
+    margin:10px;
+    border-radius:10px;
+    display: inline-block;
+    background-color: rgba(255, 123, 0, 0.589);
+    text-shadow: 1px 1px 5px orangered;
+    border-color: rgb(255, 180, 94);
+    border-style:solid;
+  }
+  .leftDoorButton {
+    background-color: rgb(39, 13, 11);
+    border-color: rgb(51, 5, 5);
+    border-style:solid;
+    border-width: 10px;
+    border-radius: 10px;
+    margin:10px;
+    display: inline-block;
+    width: 200px;
+    height: 400px;
+    text-align: center;
+    transition-duration: 500ms;
+  }
+  .leftDoorButton:hover {
+    background-color: rgb(66, 13, 9);
+    border-color: rgb(151, 23, 23);
+    border-style:solid;
+    border-width: 10px;
+    border-radius: 10px;
+    margin:10px;
+    display: inline-block;
+    width: 200px;
+    height: 400px;
+    text-align: center;
+    transition-duration: 500ms;
+  }
+  .rightDoorButton {
+    background-color: rgb(20, 20, 20);
+    border-color: rgb(23, 35, 53);
+    border-style:solid;
+    color: rgb(255, 94, 0);
+    border-radius: 10px;
+    border-width: 10px;
+    margin:10px;
+    display: inline-block;
+    text-align: center;
+    width: 200px;
+    height: 400px;
+    transition-duration: 500ms;
+  }
+  .rightDoorButton:hover {
+    background-color: rgb(34, 34, 34);
+    transition-duration: 500ms;
+    border-color: rgb(36, 55, 161);
+    border-style:solid;
+    border-radius: 10px;
+    border-width: 10px;
+    margin:10px;
+    display: inline-block;
+    text-align: center;
+    width: 200px;
+    height: 400px;
+  }
+  .downstairsButton {
+    transition-duration: 500ms;
+    background-color:rgb(0, 0, 0);
+    background: repeating-linear-gradient(black, rgb(61, 61, 61) 20%, rgb(77, 77, 77) 10%);
+    border-color: rgb(29, 29, 29);
+    border-style:solid;
+    border-radius: 10px;
+    border-width: 10px;
+    margin:10px;
+    display: inline-block;
+    text-align: center;
+    width: 300px;
+    height: 300px;
+  }
+  .downstairsButton:hover {
+    transition-duration: 500ms;
+    background: repeating-linear-gradient(rgb(15, 15, 15), rgb(75, 75, 75) 20%, rgb(87, 87, 87) 10%);
+    border-color: rgb(134, 134, 134);
+    border-style:solid;
+    border-radius: 10px;
+    border-width: 10px;
+    margin:10px;
+    display: inline-block;
+    text-align: center;
+    width: 320px;
+    height: 320px;
+  }
+  .basementButton {
+    width: 200px;
+    height: 400px;
+    background: radial-gradient(rgba(107, 73, 22, 0.664), rgb(0, 0, 0));
+    border-color: rgb(29, 29, 29);
+    border-style:solid;
+    border-radius: 5px;
+    border-width: 5px;
+    transition-duration: 500ms;
+  }
+  .basementButton:hover {
+    width: 210px;
+    height: 410px;
+    background: radial-gradient(rgba(139, 96, 30, 0.856), rgb(0, 0, 0));
+    border-style:solid;
+    border-radius: 5px;
+    border-width: 5px;
+    border-color:rgba(139, 96, 30, 0.856);
+    transition-duration: 500ms;
+  }
+  .styleButton {
+    font-size: 15px;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    margin:10px;
+    display: inline-block;
+  }
+  .backButton {
+    margin:10px;
+    font-size: 30px;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    margin:10px;
+    display: inline-block;
+  }
+  .programDiv {
+    display:inline-block;
+    padding: 5px;
+    margin:50px;
+    width:700px;
+    height: 800px;
+  }
+  .introText {
+    font-size: 17px;
+    font-weight: bolder;
+    font-family: papyrus;
+    margin:5px;
+    color:rgb(255, 255, 255);
+    background:radial-gradient(rgba(90, 90, 90, 0.75)20%, rgba(2, 6, 53, 0.75),rgba(0, 0, 0, 0.75));
+    text-shadow: 1px 1px 3px rgb(0, 0, 0); 
+    border-radius: 20px;
+  }
+  .goldDisplay {
+    font-size:25px;
+    font-family:'Times New Roman', Times, serif;
+    color:rgb(255, 229, 83);
+    display:block;
+    margin-top: 15px;
+  }
+  .damageDisplay {
+    font-size:25px;
+    font-family:'Times New Roman', Times, serif;
+    color:rgb(255, 0, 0);
+    display:block;
+    margin-top: 15px;
+  }
+  .healthDisplay {
+    font-size:25px;
+    font-family:'Times New Roman', Times, serif;
+    color:rgb(9, 255, 0);
+    display:block;
+    margin-top: 15px;
+  }
+  .weaponDisplay {
+    font-size:25px;
+    font-family:'Times New Roman', Times, serif;
+    color:rgb(83, 94, 255);
+    display:block;
+    margin-top: 15px;
+  }
+  .equipmentDisplay {
+    font-size:25px;
+    font-family:'Times New Roman', Times, serif;
+    color:rgb(83, 94, 255);
+    display:block;
+    margin-top: 15px;
+  }
+  .doorTextStyle {
+    font-size: 17px;
+    font-weight: bolder;
+    font-family: papyrus;
+    margin:1px;
+    color:rgb(255, 177, 75);
+    text-shadow: 1px 1px 5px rgb(255, 94, 0); 
+  }
+  .textStyle {
+    font-size: 17px;
+    font-weight: bolder;
+    font-family: papyrus;
+    margin:1px;
+    color:rgb(255, 177, 75);
+    text-shadow: 1px 1px 5px rgb(255, 94, 0); 
+  }
+  .cathedralText {
+    font-size: 17px;
+    font-weight: bolder;
+    font-family: papyrus;
+    margin:5px;
+    color:rgb(255, 212, 23);
+    text-shadow: 1px 1px 5px rgb(255, 51, 0); 
+  }
+  .skeletonStyle {
+    width:150px;
+    height:150px;
+    margin:10px;
+    background:repeating-linear-gradient(to top,rgb(95, 95, 95) 30% , rgb(192, 192, 192) 40%), rgb(27, 27, 27) 20%;
+    color:rgb(255, 88, 88);
+    text-shadow: 1px 1px 2px black;
+    font-size: 40px;
+    border-color:rgb(126, 126, 126);
+    border-style: solid;
+    display:inline-block;
+    transition-duration: 500ms;
+   } 
+  .skeletonStyle:hover {
+    width:150px;
+    height:150px;
+    margin:10px;
+    background:repeating-linear-gradient(to top,rgb(131, 131, 131) 30% , rgb(255, 134, 134) 40%), rgb(63, 4, 4) 20%;
+    color:rgb(255, 0, 0);
+    text-shadow: 1px 1px 2px black;
+    display:inline-block;
+    transition-duration:500ms;
+  }
+  .healButtonStyle {
+    font-size: 17px;
+    font-weight: bolder;
+    font-family: papyrus;
+    margin:5px;
+    text-wrap-style: nowrap;
+    color:rgb(255, 230, 119);
+    text-shadow: 1px 1px 2px rgb(29, 29, 29);
+    background-color: rgb(19, 19, 19); 
+    transition-duration: 500ms;
+    border-style: double;
+    border-color: rgb(192, 86, 0);
+    background:radial-gradient(rgba(116, 42, 0, 0.411),rgba(39, 0, 0, 0.404));
+    width:170px;
+    height:80px;
+  }
+  .healButtonStyle:hover{
+    font-size: 17px;
+    font-weight: bolder;
+    font-family: papyrus;
+    margin:5px;
+    color:rgb(255, 187, 0);
+    text-shadow: 1px 1px 2px rgb(29, 29, 29);
+    background: radial-gradient(rgba(255, 94, 0, 0.411),rgba(88, 0, 0, 0.404));
+    transition-duration: 500ms;
+    width:190px;
+    height:90px;
+  }
+  .fightText {
+    font-size: 17px;
+    font-weight: bolder;
+    font-family: papyrus;
+    margin:5px;
+    text-wrap-style: nowrap;
+    color:rgb(255, 212, 23);
+    text-shadow: 1px 1px 2px rgb(29, 29, 29); 
+  }
+    .link {
+      color:rgb(255, 187, 97);
+      background-color: rgba(68, 29, 14, 0.589);
+      font-size: 25px;
+      text-align: left;
+      display:inline-block;
+      width: 120px;
+      height: 40px;
+      margin-left: 20px;
+      margin-top: 20px;
+      margin-bottom:10px;
+      padding:5px;
+      text-decoration: none;
+      border-radius: 10px;
+    }
+    .link:hover {
+    background-color: rgb(70, 20, 0);
+    text-shadow: 1px 1px 5px rgb(255, 132, 49);
+    color: rgb(255, 207, 104);
+    text-shadow: 1px 1px 5px rgb(255, 132, 49);
+    transition-duration: 500ms;
+    }
+    .link:active {
+    transition-duration: 500ms;
+    color: rgb(255, 208, 0);
+    background-color: rgba(255, 123, 0, 0.589);
+    text-shadow: 1px 1px 5px orangered;
+    }
+    .aboutLink {
+    color:rgb(255, 187, 97);
+    background-color: rgba(68, 29, 14, 0.589);
+    font-size: 25px;
+    text-align: center;
+    display:inline-block;
+    width: 80px;
+    height: 40px;
+    margin-top: 20px;
+    margin-bottom:10px;
+    padding:5px;
+    text-decoration: none;
+    border-radius: 10px;
+  }
+  .aboutLink:hover {
+    background-color: rgb(70, 20, 0);
+    text-shadow: 1px 1px 5px rgb(255, 132, 49);
+    color: rgb(255, 207, 104);
+    text-shadow: 1px 1px 5px rgb(255, 132, 49);
+    transition-duration: 500ms;
+  }
+  .aboutLink:active {
+    transition-duration: 500ms;
+    font-size: 25px;
+    color: rgb(255, 208, 0);
+    background-color: rgba(255, 123, 0, 0.589);
+    text-shadow: 1px 1px 5px orangered;
+  }
+  </style>
+</head>
+<body>
+  <nav>
+    <a class="link" href="index.html">Main Page</a>
+    <a class="aboutLink" href="about.html">About</a>
+  </nav>
+<div>
+  <div class="programDiv">
+    <div>
+      <button id="start" class="Button" onclick="setTimeout(start, 150)">Start</button>
+      <p id="intro" class="introText">
+        You are an adventurer, lost in a dark forest. 
+        You try to look around to find any landmarks, when you spot the shadowy figure of an old church, towering over the old and crooked trees.
+        The boom of a lightning strike breaks the silence of the dead forest, so you decide that the best course of action would be to seek shelter in the church. <br>
+        <br>As you enter the church, you realise that it has been abandoned for a significant amount of time as you can see there are cracks in the floor and all the furniture has started to fall apart. 
+        You look around, not able to find anything, but that's when you see two doors that is positioned to the left and right of a staircase that leads down into a void of blackness.<br>
+        <br>The left door is made of mahogany and has a red glow to it and the right door is made of ebony wood with a blue glow to it.
+        The staircase is made of black coloured granite, and the black void that is at the bottom of it fills you with dread.
+      </p>
+      <p id="doorText" class="doorTextStyle">Your curiosity gets the better of you and decide that you want to look inside the two doors. Which one do you pick first?</p>
+      <p id="insideDoor" class="textStyle">There is nothing left for you here...</p>
+      <p id="basementText" class="textStyle">You go down the stairs, but the stairs seem endless and you start to lose track of time. Eventually, after what feels like forever, you see a light as you reach the bottom of the stairs and see the outline of a doorway.</p>
+      <p id="outputCathedralText" class="textStyle">As you go through the doorway, you realise that you are standing in the remains of an underground cathedral, with massive pillars decorating the endless darkness, with a couple of tourches being the only source of light.</p>
+      <p id ="afterFightText" class="fightText">You defeat the skeletons, but you are injured and require some medical attention.</p>
+      <button id="continue" class="Button" onclick="setTimeout(continueButton, 150)">Continue</button>
+      <button id="leftdoor" class="leftDoorButton" onclick="setTimeout(leftDoor, 150)"></button>
+      <button id="rightdoor" class="rightDoorButton" onclick="setTimeout(rightDoor, 150)"></button>
+      <button id="returnFromDoor1" class="Button" onclick="setTimeout(goBackLeft,150)">Go back</button>
+      <button id="returnFromDoor2" class="Button" onclick="setTimeout(goBackRight, 150)">Go back</button>
+      <button id="stairs" class="downstairsButton" onclick="setTimeout(goDownStairs, 150)"></button>
+      <button id="basementDoor" class="basementButton" onclick="setTimeout(basement,150)"></button>
+      <button id="cathedralButton" class="Button" onclick="setTimeout(cathedral,150)">Continue</button>
+      <button id="skeleton1" class="skeletonStyle" onclick="skeletonButton1()">20 HP</button>
+      <button id="skeleton2" class="skeletonStyle" onclick="skeletonButton2()">20 HP</button>
+      <button id="afterFightButton1" class="healButtonStyle" onclick="mendingSelf()">Try to mend your wounds yourself.</button>
+      <button id="afterFightButton2" class="healButtonStyle" onclick="lookForMedical()">Look for medical supplies.</button>
+      <h1 id ="healthPoints" class="healthDisplay">100 HP</h1>
+      <h1 id ="damageMeter" class="damageDisplay">5 Damage</h1>
+      <h1 id="amountOfGold" class="goldDisplay">0 Gold</h1>
+      <h1 id="weapon" class="weaponDisplay">Weapon: Melee</h1>
+      <h1 id="equipment" class="equipmentDisplay">Equipment: Nothing</h1>
+      <script> 
+        // Create a variable and save the state of it. 
+        var goThroughLeftDoor= false;
+        var goThroughRightDoor= false;
+        // Find an element with the matching ID
+        var outputIntro = document.getElementById("intro");
+        var outputContinue = document.getElementById("continue");
+        var outputDoor = document.getElementById("doorText");
+        var outputGold = document.getElementById("amountOfGold");
+        var outputDamage = document.getElementById("damageMeter");
+        var outputHealth = document.getElementById("healthPoints");
+        //var outputDice = document.getElementById("diceRoll");//
+        var outputWeapon = document.getElementById("weapon");
+        var outputEquipment = document.getElementById("equipment");
+        var outputInsideDoor = document.getElementById("insideDoor");
+        var outputBasementText = document.getElementById("basementText");
+        var outputBasementDoor = document.getElementById("basementDoor");
+        var outputSkeleton1 = document.getElementById("skeleton1");
+        var outputSkeleton2 = document.getElementById("skeleton2");
+        var output0 = document.getElementById("title");
+        var output1 = document.getElementById("start");
+        var output2 = document.getElementById("leftdoor");
+        var output3 = document.getElementById("rightdoor");
+        var output4 = document.getElementById("returnFromDoor1");
+        var output5 = document.getElementById("returnFromDoor2");
+        var output6 = document.getElementById("stairs");
+        var outputCathedralButton = document.getElementById("cathedralButton");
+        var outputAfterFight1=document.getElementById("afterFightButton1");
+        var outputAfterFight2=document.getElementById("afterFightButton2");
+        var outputAfterFightText=document.getElementById("afterFightText");
+        // create variable with a specific text to be use as an output. 
+        var leftDoorText = "You decide to go through the left door.";
+        var rightDoorText = "You decide to go through the right door.";
+        // create variable for health points.
+        // create variable for damage.
+        var healthPoints = 100;
+        // update to use any number
+        var damage = 5;
+        damage = Number (damage);
+        var dice = Number(dice);
+        // Create variable that sets the maximum number
+        var max = 20;
+        var gold=0;
+        var gold=Number(gold);
+        // variables for different items to be used later in the program
+        var rareSword = false;
+        var pickAxeShovel = false;
+        var strangeBook = false;
+        // variables to be used later in program 
+        var hitHead = false;
+        var tinySpider = false;
+        // hides the the element(s) with the matching id(s)
+        // every
+        outputIntro.style.display="none";
+        outputContinue.style.display="none";
+        outputDoor.style.display="none";
+        outputGold.style.display="none";
+        outputDamage.style.display="none";
+        outputHealth.style.display="none";
+        outputWeapon.style.display="none";
+        outputEquipment.style.display="none";
+        outputInsideDoor.style.display="none";
+        output2.style.display="none";
+        output3.style.display="none";
+        output4.style.display="none";
+        output5.style.display="none";
+        output6.style.display="none";
+        outputBasementText.style.display="none";
+        outputBasementDoor.style.display="none";
+        outputCathedralText.style.display="none";
+        outputCathedralButton.style.display="none";
+        outputSkeleton1.style.display="none";
+        outputSkeleton2.style.display="none";
+        outputAfterFight1.style.display="none";
+        outputAfterFight2.style.display="none";
+        outputAfterFightText.style.display="none";
+        // check state of variable in console
+        console.log(goThroughLeftDoor);
+        console.log(goThroughRightDoor);
+        // A function for the start of the program
+        // Uses the onclick function for a button
+        // Also displays the intro text
+        function start() {
+        outputIntro.style.display="inline-block";
+        output1.style.display="none";
+        outputContinue.style.display="inline-block";
+        }
+        //Function for the continue button
+        function continueButton() {
+          outputIntro.style.display="none";
+          outputContinue.style.display="none";
+          output2.style.display="inline-block";
+          output3.style.display="inline-block";
+          outputGold.style.display="block";
+          outputDamage.style.display="block";
+          outputHealth.style.display="block";
+          outputWeapon.style.display="block";
+          outputEquipment.style.display="block";
+          outputDoor.style.display="inline-block";
+        }
+        //
+        function leftDoor() {
+          goThroughLeftDoor=true;
+          outputInsideDoor.style.display="block";
+          outputIntro.style.display="none";
+          outputDoor.style.display="none";
+          output2.style.display="none";
+          output3.style.display="none";
+          output4.style.display="inline-block";
+          output5.style.display="none";
+          output6.style.display="none";
+          var dice = Math.random();
+          var dice = Math.floor(dice * max);
+          console.log (dice);
+          alert (leftDoorText);
+          if (dice <= 1) {
+            hitHead = true;
+            alert ("As you walk into the room you manage to hit your head against the doorframe, you take +1 damage and wonder why the hell you are so clumsy...");
+            document.getElementById("healthPoints").innerHTML="99 HP";
+            if (tinySpider && hithead) {
+              document.getElementById("healthPoints").innerHTML="98 HP";
+            }
+          }
+          else if (dice <= 3) {
+            alert ("You walk into an empty room and wonder why you are still here...just to suffer...");
+          }
+          else if (dice <= 15) {
+            alert ("You find a shovel and a pickaxe! Could be useful...");
+            pickAxeShovel = true;
+            document.getElementById("equipment").innerHTML="Equipment: Shovel, Pickaxe";
+            if ((pickAxeShovel) && (strangeBook)) {
+              document.getElementById("equipment").innerHTML="Equipment: Shovel, Pickaxe, Strange book";
+            }
+          }
+          else if (dice <= 19) {
+            // Update variable of sword to be true if user is lucky.
+            rareSword = true;
+            alert ("As you search the room, you eventually find a sword tucked away in a chest and as you inspect it you see that there are markings engraved on the hilt, but you do not understand its meaning. You decide to grab it and your damage increases. (+3 dmg)");
+            document.getElementById("damageMeter").innerHTML=damage + 3 + " damage";
+            document.getElementById("weapon").innerHTML="Weapon: Steel Sword";
+          }
+          else if (dice > 19) {
+            alert ("You see a tiny statue across the room and as you touch you feel a surge of energy flow through you! Your damage greatly increases. (+4 dmg)");
+            document.getElementById("damageMeter").innerHTML="5 Damage";
+          }
+        }
+        // Variables for text that user has a chance of getting
+        var choiceChanceText1="As you walk into the room, you realise you are not alone. A man is standing in the middle of the room with a crazed smile on his face.";
+        var choiceChanceText2="He offers you plentiful of gold if you are able to answer his riddle.";
+        var choiceChanceText3="The man shares his riddle: ''I am tall when I am young, and I am short when I am old. What am I?'";
+        function rightDoor() {
+          // Updates the right door variable to true 
+          goThroughRightDoor=true;
+          outputInsideDoor.style.display="block";
+          outputDoor.style.display="none";
+          outputIntro.style.display="none";
+          output2.style.display = "none";
+          output3.style.display = "none";
+          output4.style.display = "none";
+          output5.style.display = "inline-block";
+          output6.style.display = "none";
+          var dice = Math.random();
+          var dice = Math.floor(dice * max);
+          console.log(dice);
+          alert (rightDoorText);
+          if (dice <= 1) {
+            alert ("a tiny spider leaps down from the ceiling and bites you, you take +1 dmg.");
+            tinySpider = true;
+            document.getElementById("healthPoints").innerHTML="99 HP";
+            if ((hitHead) && (tinySpider)) {
+              document.getElementById("healthPoints").innerHTML="98 HP";
+            }
+          } 
+          else if (dice <= 3) {
+            alert("You search the room but find nothing...")
+          }
+          else if (dice <= 7) {
+            alert ("You search the room and find a book with symbols written all over it. The book itself is written in some sort of elvish and you are not able to translate it. You decide to put it in your backpack for the time being.");
+            strangeBook = true;
+            document.getElementById("equipment").innerHTML="Equipment: Strange book";
+            if ((pickAxeShovel) && (strangeBook)) {
+            document.getElementById("equipment").innerHTML="Equipment: Shovel, Pickaxe, Strange book";
+            }
+          }
+          else if (dice <= 15) {
+            alert ("As you search through the room, you are able to find some gold! (+20 gold)");
+            // Updates the text in the html element
+            document.getElementById("amountOfGold").innerHTML="20 gold";
+          }
+          else if (dice > 15) {
+            alert (choiceChanceText1 + " "+ choiceChanceText2 + " "+ choiceChanceText3);
+            var answer = prompt("Choose wisely...");
+            var answer = answer.toLowerCase();
+            if (answer == "candle") {
+              alert ("That is correct. You receive 50 gold!");
+              // output in console so you can see its working as intended
+              console.log(gold + 50 + " gold");
+              // Updates the text in the html element
+              document.getElementById("amountOfGold").innerHTML="50 gold";
+              // hides elements
+              output4.style.display="none";
+              output5.style.display="inline-block";
+            }
+            else {
+              alert ("That is not the correct answer. The man laughs at your incompetence as he vanish into thin air and you are left with nothing but your thoughts...");
+              output4.style.display="none";
+              output5.style.display="inline-block";
+            }
+          }
+        }
+        // A function for the user to return back outside the doors
+        function goBackLeft() {
+          goThroughLeftDoor=true;
+          alert ("You go back into the hallway");
+          if (goThroughLeftDoor) {
+            output2.style.display="none";
+            output3.style.display="inline-block";
+            output4.style.display="none";
+            output5.style.display="none";
+            output6.style.display="none";
+            outputInsideDoor.style.display="none";
+          }
+          if ((goThroughLeftDoor) && (goThroughRightDoor)) {
+            output2.style.display="none";
+            output3.style.display="none";
+            output4.style.display="none";
+            output5.style.display="none";
+            output6.style.display="inline-block";
+            alert("There is no more rooms to search so your gaze turns towards the stairs.");
+          }
+        }
+        // A function for the user to return back outside the doors
+        function goBackRight() {
+          goThroughRightDoor=true;
+          alert ("You go back into the hallway");
+          if (goThroughRightDoor) {
+            output2.style.display="inline-block";
+            output3.style.display="none";
+            output4.style.display="none";
+            output5.style.display="none";
+            output6.style.display="none";
+            outputInsideDoor.style.display="none";
+          }
+          if ((goThroughLeftDoor) && (goThroughRightDoor)) {
+            output2.style.display="none";
+            output3.style.display="none";
+            output4.style.display="none";
+            output5.style.display="none";
+            output6.style.display="inline-block";
+            alert("There are no more rooms to search so your gaze turns towards the stairs.");
+          }
+        }
+        // More functions that uses onclick for buttons
+        // Stylized as stairs and doors
+        function goDownStairs() {
+          alert ("You decide to go down the stairs, not knowning where it leads...");
+          goThroughLeftDoor=true;
+          goThroughRightDoor=true;
+          console.log(goThroughLeftDoor);
+          console.log(goThroughRightDoor);
+          output2.style.display="none";
+          output3.style.display="none";
+          output4.style.display="none";
+          output5.style.display="none";
+          output6.style.display="none";
+          outputBasementText.style.display="inline-block";
+          outputBasementDoor.style.display="inline-block";
+        }
+        function basement() {
+          alert ("You step into the doorway...");
+          outputCathedralText.style.display="inline-block";
+          outputBasementDoor.style.display="none";
+          outputBasementText.style.display="none";
+          outputCathedralButton.style.display="inline-block";
+        }
+        function cathedral() {
+          alert ("As you look around you hear a noise...and as you turn around you see two skeleton warriors stumbling towards you!");
+          outputCathedralText.style.display="none";
+          outputCathedralButton.style.display="none";
+          outputSkeleton1.style.display="inline-block";
+          outputSkeleton2.style.display="inline-block";
+        }
+        //skeleton fight
+        var dice2 = Number(dice2);
+        var dice2 = Math.random();
+        var dice2 = Math.floor(dice2 * max);
+        var skeletonHP1=20;
+        var skeletonHP2=20;
+        var skeleton1Victory = false;
+        var skeleton2Victory = false;
+        function skeletonButton1() {
+        dice = Math.random();
+        dice = Math.floor(dice * max);
+        console.log(dice);
+          if ((dice>=5) && (damage=5)) {
+            alert("Your attack does 5 damage!");
+            skeletonHP1=skeletonHP1-=5;
+            document.getElementById("skeleton1").innerHTML=skeletonHP1 + " HP";
+          }
+          else {
+            alert("Your attack miss!");
+          }
+        var skeleton1turn = setTimeout(skeletonAttack1, 500);
+          function skeletonAttack1() {
+            dice2 = Math.random();
+            dice2 = Math.floor(dice2 * max);
+            console.log(dice2);
+            if (dice2>=7) {
+              alert ("Skeleton Swordsman attack hits you for 3 damage!");
+              healthPoints=healthPoints-3;
+              document.getElementById("healthPoints").innerHTML=healthPoints + " HP";
+            }
+            else {
+              alert ("Skeleton Swordsman attack misses!");
+            }
+          }
+          if (skeletonHP1<=0) {
+            skeleton1Victory = true;
+            outputSkeleton1.style.display="none";
+          }
+          if ((skeleton1Victory) && (skeleton2Victory)) {
+            outputAfterFightText.style.display="inline-block";
+            outputAfterFight1.style.display="inline-block";
+            outputAfterFight2.style.display="inline-block";
+          }
+        }  
+        function skeletonButton2() {
+          dice = Math.random();
+          dice = Math.floor(dice2 * max);
+          dice2 = Math.random();
+          dice2 = Math.floor(dice2 * max);
+          if ((dice>=5) && (damage=5)) {
+            alert("Your attack does 5 damage!");
+            skeletonHP2=skeletonHP2-=5;
+            document.getElementById("skeleton2").innerHTML=skeletonHP2 + " HP";
+          }
+          else {
+            alert("Your attack miss!");
+          }
+          var skeleton2turn = setTimeout(skeletonAttack2, 500);
+          function skeletonAttack2() {
+            dice2 = Math.random();
+            dice2 = Math.floor(dice2 * max);
+            console.log(dice2);
+          if (dice2>=7) {
+            alert ("Skeleton Spearman attack hits you for 3 damage!");
+            healthPoints=healthPoints-3;
+            document.getElementById("healthPoints").innerHTML=healthPoints + " HP";
+          }
+          else {
+            alert ("Skeleton Spearman attack misses!");
+          }
+          }
+          if (skeletonHP2<=0) { 
+            skeleton2Victory = true;
+            outputSkeleton2.style.display="none";
+          }
+          if ((skeleton1Victory) && (skeleton2Victory)) {
+            outputAfterFightText.style.display="inline-block";
+            outputAfterFight1.style.display="inline-block";
+            outputAfterFight2.style.display="inline-block";
+          }
+        }
+      var mendSelf = false;
+      var lookForMeds = false;
+      // after the skeleton fight 
+      // user gets a chance to heal themselves
+      function mendingSelf() {
+      alert("You try to mend your wounds yourself");
+      mendSelf = true;
+      outputAfterFight1.style.display="none";
+      var dice = Math.random();
+      var dice = Math.floor(dice * max);
+      console.log (dice);
+      if (dice<=5) {
+       alert("You try to mend your wounds, but you fail to do so because you remember that you are not a doctor.");
+      }
+      else if (dice>5) {
+       alert("You sucessfully mend your wounds and you gain 10 HP!");
+       healthPoints=healthPoints+10;
+       document.getElementById("healthPoints").innerHTML=healthPoints+" HP";
+      }
+      if ((lookForMeds) && (mendSelf)) {
+        outputAfterFightText.style.display="none";
+      }
+      }
+      function lookForMedical() {
+      alert("You decide to look for medical supplies.");
+      lookForMeds = true;
+      outputAfterFight2.style.display="none";
+      var dice = Math.random();
+      var dice = Math.floor(dice * max);
+      console.log (dice);
+      if (dice<=5) {
+       alert("You search high and low for any sign of gauze or bandages, but you find nothing but dust and bones.");
+      }
+      else if (dice>5) {
+       alert("As you search the surrounding area, you find a chest filled with bandages, gauze and other medical supplies! You mend your wounds and gain 10 HP!");
+       healthPoints=healthPoints+10;
+       document.getElementById("healthPoints").innerHTML=healthPoints+" HP";
+      }
+      if ((lookForMeds) && (mendSelf)) {
+        outputAfterFightText.style.display="none";
+      }
+      }
+      </script>
+    </div>
+  </div>
+</div>
+</body>
+</html>
