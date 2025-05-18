@@ -386,7 +386,7 @@
       <button id="skeleton1" class="skeletonStyle" onclick="skeletonButton1()">20 HP</button>
       <button id="skeleton2" class="skeletonStyle" onclick="skeletonButton2()">20 HP</button>
       <h1 id ="healthPoints" class="healthDisplay">100 HP</h1>
-      <h1 id ="damageMeter" class="damageDisplay">1 Damage</h1>
+      <h1 id ="damageMeter" class="damageDisplay">5 Damage</h1>
       <h1 id="amountOfGold" class="goldDisplay">0 Gold</h1>
       <h1 id="weapon" class="weaponDisplay">Weapon: Melee</h1>
       <h1 id="equipment" class="equipmentDisplay">Equipment: Nothing</h1>
@@ -424,7 +424,7 @@
         // create variable for damage.
         var healthPoints = 100;
         // update to use any number
-        var damage = 1;
+        var damage = 5;
         damage = Number (damage);
         var dice = Number(dice);
         // Create variable that sets the maximum number
@@ -513,11 +513,11 @@
               document.getElementById("equipment").innerHTML="Equipment: Shovel, Pickaxe, Strange book";
             }
           }
-            else if (dice <= 19) {
+          else if (dice <= 19) {
             // Update variable of sword to be true if user is lucky.
             rareSword = true;
-            alert ("As you search the room, you eventually find a sword tucked away in a chest and as you inspect it you see that there are markings engraved on the hilt, but you do not understand its meaning. You decide to grab it and your damage increases. (+2 dmg)");
-            document.getElementById("damageMeter").innerHTML="3 Damage";
+            alert ("As you search the room, you eventually find a sword tucked away in a chest and as you inspect it you see that there are markings engraved on the hilt, but you do not understand its meaning. You decide to grab it and your damage increases. (+3 dmg)");
+            document.getElementById("damageMeter").innerHTML=damage + 3 + " damage";
             document.getElementById("weapon").innerHTML="Weapon: Steel Sword";
           }
           else if (dice > 19) {
@@ -666,9 +666,9 @@
         dice = Math.random();
         dice = Math.floor(dice * max);
         console.log(dice);
-          if (dice>=5) {
-            alert("Your attack does 3 damage!");
-            skeletonHP1=skeletonHP1-=3;
+          if ((dice>=5) && (damage=5)) {
+            alert("Your attack does 5 damage!");
+            skeletonHP1=skeletonHP1-=5;
             document.getElementById("skeleton1").innerHTML=skeletonHP1 + " HP";
           }
           else {
@@ -680,8 +680,8 @@
             dice2 = Math.floor(dice2 * max);
             console.log(dice2);
             if (dice2>=7) {
-              alert ("Skeleton Swordsman attack hits you for 1 damage!");
-              healthPoints=healthPoints-1;
+              alert ("Skeleton Swordsman attack hits you for 3 damage!");
+              healthPoints=healthPoints-3;
               document.getElementById("healthPoints").innerHTML=healthPoints + " HP";
             }
             else {
@@ -698,9 +698,9 @@
           dice = Math.floor(dice2 * max);
           dice2 = Math.random();
           dice2 = Math.floor(dice2 * max);
-          if (dice>=5) {
-            alert("Your attack does 3 damage!");
-            skeletonHP2=skeletonHP2-=3;
+          if ((dice>=5) && (damage=5)) {
+            alert("Your attack does 5 damage!");
+            skeletonHP2=skeletonHP2-=5;
             document.getElementById("skeleton2").innerHTML=skeletonHP2 + " HP";
           }
           else {
@@ -712,8 +712,8 @@
             dice2 = Math.floor(dice2 * max);
             console.log(dice2);
           if (dice2>=7) {
-            alert ("Skeleton Spearman attack hits you for 1 damage!");
-            healthPoints=healthPoints-1;
+            alert ("Skeleton Spearman attack hits you for 3 damage!");
+            healthPoints=healthPoints-3;
             document.getElementById("healthPoints").innerHTML=healthPoints + " HP";
           }
           else {
