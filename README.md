@@ -17,6 +17,7 @@ The final program is not the goal! The aim of the project is to show how you hav
 
 # User Guide
 
-> Write a clear user guide for how someone should use your program.
-
+- Press the buttons that show up
+- Read any text that is displayed carefully
+- Win
 
