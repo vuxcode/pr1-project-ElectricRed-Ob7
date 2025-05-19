@@ -370,42 +370,42 @@
       <a class="link" href="index.html">Home</a>
       <a class="aboutLink" href="about.html">About</a>
     </nav>
-  <div>
-    <div class="programDiv">
-      <div>
-        <button id="start" class="Button" onclick="setTimeout(start, 150)">Start</button>
-        <p id="intro" class="introText">
-          You are an adventurer, lost in a dark forest. 
-          You try to look around to find any landmarks, when you spot the shadowy figure of an old church, towering over the old and crooked trees.
-          The boom of a lightning strike breaks the silence of the dead forest, so you decide that the best course of action would be to seek shelter in the church. <br>
-          <br>As you enter the church, you realise that it has been abandoned for a significant amount of time as you can see there are cracks in the floor and all the furniture has started to fall apart. 
-          You look around, not able to find anything, but that's when you see two doors that is positioned to the left and right of a staircase that leads down into a void of blackness.<br>
-          <br>The left door is made of mahogany and has a red glow to it and the right door is made of ebony wood with a blue glow to it.
-          The staircase is made of black coloured granite, and the black void that is at the bottom of it fills you with dread.
-        </p>
-        <p id="doorText" class="doorTextStyle">Your curiosity gets the better of you and decide that you want to look inside the two doors. Which one do you pick first?</p>
-        <p id="insideDoor" class="textStyle">There is nothing left for you here...</p>
-        <p id="basementText" class="textStyle">You go down the stairs, but the stairs seem endless and you start to lose track of time. Eventually, after what feels like forever, you see a light as you reach the bottom of the stairs and see the outline of a doorway.</p>
-        <p id="outputCathedralText" class="textStyle">As you go through the doorway, you realise that you are standing in the remains of an underground cathedral, with massive pillars decorating the endless darkness, with a couple of tourches being the only source of light.</p>
-        <p id ="afterFightText" class="fightText">You defeat the skeletons, but you are injured and require some medical attention.</p>
-        <button id="continue" class="Button" onclick="setTimeout(continueButton, 150)">Continue</button>
-        <button id="leftdoor" class="leftDoorButton" onclick="setTimeout(leftDoor, 150)"></button>
-        <button id="rightdoor" class="rightDoorButton" onclick="setTimeout(rightDoor, 150)"></button>
-        <button id="returnFromDoor1" class="Button" onclick="setTimeout(goBackLeft,150)">Go back</button>
-        <button id="returnFromDoor2" class="Button" onclick="setTimeout(goBackRight, 150)">Go back</button>
-        <button id="stairs" class="downstairsButton" onclick="setTimeout(goDownStairs, 150)"></button>
-        <button id="basementDoor" class="basementButton" onclick="setTimeout(basement,150)"></button>
-        <button id="cathedralButton" class="Button" onclick="setTimeout(cathedral,150)">Continue</button>
-        <button id="skeleton1" class="skeletonStyle" onclick="skeletonButton1()">20 HP</button>
-        <button id="skeleton2" class="skeletonStyle" onclick="skeletonButton2()">20 HP</button>
-        <button id="afterFightButton1" class="healButtonStyle" onclick="mendingSelf()">Try to mend your wounds yourself.</button>
-        <button id="afterFightButton2" class="healButtonStyle" onclick="lookForMedical()">Look for medical supplies.</button>
-        <h1 id ="healthPoints" class="healthDisplay">100 HP</h1>
-        <h1 id ="damageMeter" class="damageDisplay">5 Damage</h1>
-        <h1 id="amountOfGold" class="goldDisplay">0 Gold</h1>
-        <h1 id="weapon" class="weaponDisplay">Weapon: Melee</h1>
-        <h1 id="equipment" class="equipmentDisplay">Equipment: Nothing</h1>
-        <h1 id="tbc" class="tbcStyle">To be continued...</h1>
+    <div>
+      <div class="programDiv">
+        <div>
+          <button id="start" class="Button" onclick="start()">Start</button>
+          <p id="intro" class="introText">
+            You are an adventurer, lost in a dark forest. 
+            You try to look around to find any landmarks, when you spot the shadowy figure of an old church, towering over the old and crooked trees.
+            The boom of a lightning strike breaks the silence of the dead forest, so you decide that the best course of action would be to seek shelter in the church. <br>
+            <br>As you enter the church, you realise that it has been abandoned for a significant amount of time as you can see there are cracks in the floor and all the furniture has started to fall apart. 
+            You look around, not able to find anything, but that's when you see two doors that is positioned to the left and right of a staircase that leads down into a void of blackness.<br>
+            <br>The left door is made of mahogany and has a red glow to it and the right door is made of ebony wood with a blue glow to it.
+            The staircase is made of black coloured granite, and the black void that is at the bottom of it fills you with dread.
+          </p>
+          <p id="doorText" class="doorTextStyle">Your curiosity gets the better of you and decide that you want to look inside the two doors. Which one do you pick first?</p>
+          <p id="insideDoor" class="textStyle">There is nothing left for you here...</p>
+          <p id="basementText" class="textStyle">You go down the stairs, but the stairs seem endless and you start to lose track of time. Eventually, after what feels like forever, you see a light as you reach the bottom of the stairs and see the outline of a doorway.</p>
+          <p id="outputCathedralText" class="textStyle">As you go through the doorway, you realise that you are standing in the remains of an underground cathedral, with massive pillars decorating the endless darkness, with a couple of tourches being the only source of light.</p>
+          <p id ="afterFightText" class="fightText">You defeat the skeletons, but you are injured and require some medical attention.</p>
+          <button id="continue" class="Button" onclick="continueButton()">Continue</button>
+          <button id="leftdoor" class="leftDoorButton" onclick="leftDoor()"></button>
+          <button id="rightdoor" class="rightDoorButton" onclick="rightDoor()"></button>
+          <button id="returnFromDoor1" class="Button" onclick="goBackLeft()">Go back</button>
+          <button id="returnFromDoor2" class="Button" onclick="goBackRight()">Go back</button>
+          <button id="stairs" class="downstairsButton" onclick="goDownStairs()"></button>
+          <button id="basementDoor" class="basementButton" onclick="basement()"></button>
+          <button id="cathedralButton" class="Button" onclick="cathedral()">Continue</button>
+          <button id="skeleton1" class="skeletonStyle" onclick="skeletonButton1()">20 HP</button>
+          <button id="skeleton2" class="skeletonStyle" onclick="skeletonButton2()">20 HP</button>
+          <button id="afterFightButton1" class="healButtonStyle" onclick="mendingSelf()">Try to mend your wounds yourself.</button>
+          <button id="afterFightButton2" class="healButtonStyle" onclick="lookForMedical()">Look for medical supplies.</button>
+          <h1 id ="healthPoints" class="healthDisplay">100 HP</h1>
+          <h1 id ="damageMeter" class="damageDisplay">5 Damage</h1>
+          <h1 id="amountOfGold" class="goldDisplay">0 Gold</h1>
+          <h1 id="weapon" class="weaponDisplay">Weapon: Melee</h1>
+          <h1 id="equipment" class="equipmentDisplay">Equipment: Nothing</h1>
+          <h1 id="tbc" class="tbcStyle">To be continued...</h1>
           <script> 
             // Create a variable and save the state of it. 
               var goThroughLeftDoor= false;
