@@ -513,7 +513,7 @@
                 else if (dice <= 3) {
                   alert ("You walk into an empty room and wonder why you are still here...just to suffer...");
                 }
-                else if (dice <= 15) {
+                else {
                   alert ("You find a shovel and a pickaxe! Could be useful...");
                   pickAxeShovel = true;
                   document.getElementById("equipment").innerHTML="Equipment: Shovel, Pickaxe";
@@ -575,10 +575,10 @@
                 else if (dice <= 15) {
                   alert ("As you search through the room, you are able to find some gold! (+20 gold)");
                   // Updates the text in the html element
-                  document.getElementById("amountOfGold").innerHTML="20 gold";
+                  document.getElementById("amountOfGold").innerHTML=gold + 20 + " gold";
                 }
                 // Any number between 15 to 20 creates unique output to user
-                if (dice <= 20) {
+                else {
                   // Text for a riddle that the user is supposed to solve.
                   alert (choiceChanceText1 + " "+ choiceChanceText2 + " "+ choiceChanceText3);
                   // Creates a prompt
@@ -588,7 +588,7 @@
                   // Anything the user types will be converted to lowercase
                   //answer = answer.toLowerCase();
                   // If the user guess is correct, they will be rewarded
-                  if (answer=candle) {
+                  if (answer==candle) {
                     alert ("That is correct. You receive 50 gold!");
                     // output in console so you can see its working as intended
                     console.log(gold + 50 + " gold");
