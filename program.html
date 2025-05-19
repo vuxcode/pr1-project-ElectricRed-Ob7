@@ -177,16 +177,17 @@
       .weaponDisplay {
         font-size: 25px;
         font-family: 'Times New Roman', Times, serif;
-        color: rgb(83, 94, 255);
+        color: rgb(255, 255, 255);
         display: block;
         margin-top: 15px;
       }
       .equipmentDisplay {
         font-size: 25px;
         font-family: 'Times New Roman', Times, serif;
-        color: rgb(83, 94, 255);
+        color: rgb(88, 105, 255);
         display: block;
         margin-top: 15px;
+        margin-bottom:15px;
       }
       .doorTextStyle {
         font-size: 17px;
@@ -394,13 +395,13 @@
               var outputBasementDoor = document.getElementById("basementDoor");
               var outputSkeleton1 = document.getElementById("skeleton1");
               var outputSkeleton2 = document.getElementById("skeleton2");
-              var output0 = document.getElementById("title");
-              var output1 = document.getElementById("start");
-              var output2 = document.getElementById("leftdoor");
-              var output3 = document.getElementById("rightdoor");
-              var output4 = document.getElementById("returnFromDoor1");
-              var output5 = document.getElementById("returnFromDoor2");
-              var output6 = document.getElementById("stairs");
+              var outputTitle = document.getElementById("title");
+              var outputStart = document.getElementById("start");
+              var outputLeftDoor = document.getElementById("leftdoor");
+              var outputRightDoor = document.getElementById("rightdoor");
+              var outputLeftReturn = document.getElementById("returnFromDoor1");
+              var outputRightReturn = document.getElementById("returnFromDoor2");
+              var outputStairs = document.getElementById("stairs");
               var outputCathedralButton = document.getElementById("cathedralButton");
               var outputAfterFight1=document.getElementById("afterFightButton1");
               var outputAfterFight2=document.getElementById("afterFightButton2");
@@ -421,7 +422,7 @@
               var gold=0;
               var gold=Number(gold);
               // variables for different items to be used later in the program
-              var rareSword = false;
+              /*var rareSword = false;*/
               var pickAxeShovel = false;
               var strangeBook = false;
               // variables to be used later in program 
@@ -438,11 +439,11 @@
               outputWeapon.style.display="none";
               outputEquipment.style.display="none";
               outputInsideDoor.style.display="none";
-              output2.style.display="none";
-              output3.style.display="none";
-              output4.style.display="none";
-              output5.style.display="none";
-              output6.style.display="none";
+              outputLeftDoor.style.display="none";
+              outputRightDoor.style.display="none";
+              outputLeftReturn.style.display="none";
+              outputRightReturn.style.display="none";
+              outputStairs.style.display="none";
               outputBasementText.style.display="none";
               outputBasementDoor.style.display="none";
               outputCathedralText.style.display="none";
@@ -461,15 +462,15 @@
               // Also displays the intro text
               function start() {
                 outputIntro.style.display="inline-block";
-                output1.style.display="none";
+                outputStart.style.display="none";
                 outputContinue.style.display="inline-block";
               }
               //Function for the continue button
               function continueButton() {
                 outputIntro.style.display="none";
                 outputContinue.style.display="none";
-                output2.style.display="inline-block";
-                output3.style.display="inline-block";
+                outputLeftDoor.style.display="inline-block";
+                outputRightDoor.style.display="inline-block";
                 outputGold.style.display="block";
                 outputDamage.style.display="block";
                 outputHealth.style.display="block";
@@ -484,11 +485,11 @@
                 outputInsideDoor.style.display="block";
                 outputIntro.style.display="none";
                 outputDoor.style.display="none";
-                output2.style.display="none";
-                output3.style.display="none";
-                output4.style.display="inline-block";
-                output5.style.display="none";
-                output6.style.display="none";
+                outputLeftDoor.style.display="none";
+                outputRightDoor.style.display="none";
+                outputLeftReturn.style.display="inline-block";
+                outputRightReturn.style.display="none";
+                outputStairs.style.display="none";
                 // Picks a random number
                 var dice = Math.random();
                 // Picks a random  from 0 to 20 
@@ -542,11 +543,11 @@
                 outputInsideDoor.style.display="block";
                 outputDoor.style.display="none";
                 outputIntro.style.display="none";
-                output2.style.display = "none";
-                output3.style.display = "none";
-                output4.style.display = "none";
-                output5.style.display = "inline-block";
-                output6.style.display = "none";
+                outputLeftDoor.style.display = "none";
+                outputRightDoor.style.display = "none";
+                outputLeftReturn.style.display = "none";
+                outputRightReturn.style.display = "inline-block";
+                outputStairs.style.display = "none";
                 var dice = Math.random();
                 var dice = Math.floor(dice * max);
                 console.log(dice);
@@ -576,34 +577,37 @@
                   // Updates the text in the html element
                   document.getElementById("amountOfGold").innerHTML="20 gold";
                 }
-                // Any number above 15 shows unique output to user
-                else if (dice > 15) {
+                // Any number between 15 to 20 creates unique output to user
+                if (dice <= 20) {
                   // Text for a riddle that the user is supposed to solve.
                   alert (choiceChanceText1 + " "+ choiceChanceText2 + " "+ choiceChanceText3);
                   // Creates a prompt
                   var answer = prompt("Choose wisely...");
+                  var candle="candle";
+                  candle=candle.toLowerCase();
                   // Anything the user types will be converted to lowercase
-                  var answer = answer.toLowerCase();
+                  //answer = answer.toLowerCase();
                   // If the user guess is correct, they will be rewarded
-                  if (answer == "candle") {
+                  if (answer=candle) {
                     alert ("That is correct. You receive 50 gold!");
                     // output in console so you can see its working as intended
                     console.log(gold + 50 + " gold");
                     // Updates the text in the html element
-                    document.getElementById("amountOfGold").innerHTML="50 gold";
+                    document.getElementById("amountOfGold").innerHTML=gold + 50 + " gold";
                     // hides button + displays button and continues the program.
-                    output4.style.display="none";
-                    output5.style.display="inline-block";
+                    outputLeftReturn.style.display="none";
+                    outputRightReturn.style.display="inline-block";
                   }
                   // Wrong answer means that the user is not rewarded
                   // And the program continues
                   else {
                     alert ("That is not the correct answer. The man laughs at your incompetence as he vanish into thin air and you are left with nothing but your thoughts...");
                     // Hides button + display button and continues the program.
-                    output4.style.display="none";
-                    output5.style.display="inline-block";
+                    outputLeftReturn.style.display="none";
+                    outputRightReturn.style.display="inline-block";
                   }
                 }
+                
               }
               // A function for the user to return back outside the doors
               function goBackLeft() {
@@ -612,20 +616,20 @@
                 // Hides every element that was previously shown to the user
                 // And display the "Go back" button
                 if (goThroughLeftDoor) {
-                  output2.style.display="none";
-                  output3.style.display="inline-block";
-                  output4.style.display="none";
-                  output5.style.display="none";
-                  output6.style.display="none";
+                  outputLeftDoor.style.display="none";
+                  outputRightDoor.style.display="inline-block";
+                  outputLeftReturn.style.display="none";
+                  outputRightReturn.style.display="none";
+                  outputStairs.style.display="none";
                   outputInsideDoor.style.display="none";
                 }
                 // if user has gone through both doors, continue the program
                 if ((goThroughLeftDoor) && (goThroughRightDoor)) {
-                  output2.style.display="none";
-                  output3.style.display="none";
-                  output4.style.display="none";
-                  output5.style.display="none";
-                  output6.style.display="inline-block";
+                  outputLeftDoor.style.display="none";
+                  outputRightDoor.style.display="none";
+                  outputLeftReturn.style.display="none";
+                  outputRightReturn.style.display="none";
+                  outputStairs.style.display="inline-block";
                   alert("There is no more rooms to search so your gaze turns towards the stairs.");
                 }
               }
@@ -634,20 +638,20 @@
                 goThroughRightDoor=true;
                 alert ("You go back into the hallway");
                 if (goThroughRightDoor) {
-                  output2.style.display="inline-block";
-                  output3.style.display="none";
-                  output4.style.display="none";
-                  output5.style.display="none";
-                  output6.style.display="none";
+                  outputLeftDoor.style.display="inline-block";
+                  outputRightDoor.style.display="none";
+                  outputLeftReturn.style.display="none";
+                  outputRightReturn.style.display="none";
+                  outputStairs.style.display="none";
                   outputInsideDoor.style.display="none";
                 }
                 // if user has gone through both doors, continue the program
                 if ((goThroughLeftDoor) && (goThroughRightDoor)) {
-                  output2.style.display="none";
-                  output3.style.display="none";
-                  output4.style.display="none";
-                  output5.style.display="none";
-                  output6.style.display="inline-block";
+                  outputLeftDoor.style.display="none";
+                  outputRightDoor.style.display="none";
+                  outputLeftReturn.style.display="none";
+                  outputRightReturn.style.display="none";
+                  outputStairs.style.display="inline-block";
                   alert("There are no more rooms to search so your gaze turns towards the stairs.");
                 }
               }
@@ -655,11 +659,11 @@
               // Stylized as stairs and doors
               function goDownStairs() {
                 alert ("You decide to go down the stairs, not knowning where it leads...");
-                output2.style.display="none";
-                output3.style.display="none";
-                output4.style.display="none";
-                output5.style.display="none";
-                output6.style.display="none";
+                outputLeftDoor.style.display="none";
+                outputRightDoor.style.display="none";
+                outputLeftReturn.style.display="none";
+                outputRightReturn.style.display="none";
+                outputStairs.style.display="none";
                 outputBasementText.style.display="inline-block";
                 outputBasementDoor.style.display="inline-block";
               }
@@ -695,9 +699,12 @@
               // Create condition when two variables are true
               // Update the value of the html element or the "hp" of the skeletons
               if (dice>=5) {
-                alert("Your attack does 5 damage!");
-                skeletonHP1=skeletonHP1-=5;
-                document.getElementById("skeleton1").innerHTML=skeletonHP1 + " HP";
+                while (skeletonHP1>0) {
+                  alert("Your attack does 5 damage!");
+                  skeletonHP1=skeletonHP1-=5;
+                  document.getElementById("skeleton1").innerHTML=skeletonHP1 + " HP";
+                  break;
+                }
               }
               // If user roll <5, the value doesnt update 
               // And the user "miss" their attack
@@ -707,7 +714,7 @@
               // Creates a basic turn based system
               // When the user attacks, there is a slight delay
               // And the skeleton fights back
-              var skeleton1turn = setTimeout(skeletonAttack1, 500);
+              var skeleton1turn = setTimeout(skeletonAttack1, 650);
               function skeletonAttack1() {
                 // Skeleton uses own set of dice
                 // to determine outcome of their attack (if they hit or miss)
@@ -716,13 +723,19 @@
                 console.log(dice2);
                 // If dice lands on 7 or above, the Skeleton attack hits
                 if (dice2>=7) {
-                  alert ("Skeleton Swordsman attack hits you for 3 damage!");
-                  healthPoints=healthPoints-=3;
-                  document.getElementById("healthPoints").innerHTML=healthPoints + " HP";
+                  while (skeletonHP1>0) {
+                    alert ("Skeleton Swordsman attack hits you for 3 damage!");
+                    healthPoints=healthPoints-=3;
+                    document.getElementById("healthPoints").innerHTML=healthPoints + " HP";
+                    break;
+                  }
                 }
                 // Anything less than 7 and the Skeleton's attack miss
-                else if (dice2<7) {
-                  alert ("Skeleton Swordsman tries to attack, but it missed!");
+                if (dice2<7) {
+                  while (skeletonHP1>0) {
+                    alert ("Skeleton Swordsman tries to attack, but it missed!");
+                    break;
+                  }
                 }
               }
               // When the value of the variable is less than or is the same as 0 
@@ -741,26 +754,35 @@
               dice = Math.random();
               dice = Math.floor(dice * max);
               if (dice>=5) {
-                alert("Your attack does 5 damage!");
-                // updates the variable 
-                skeletonHP2=skeletonHP2-=5;
-                document.getElementById("skeleton2").innerHTML=skeletonHP2 + " HP";
+                while (skeletonHP2>0) {
+                  alert("Your attack does 5 damage!");
+                  // updates the variable 
+                  skeletonHP2=skeletonHP2-=5;
+                  document.getElementById("skeleton2").innerHTML=skeletonHP2 + " HP";
+                  break;
+                }
               }
               else if (dice<5)  {
                 alert("Your attack miss!");
               }
-              var skeleton2turn = setTimeout(skeletonAttack2, 500);
+              var skeleton2turn = setTimeout(skeletonAttack2, 650);
               function skeletonAttack2() {
                 dice2 = Math.random();
                 dice2 = Math.floor(dice2 * max);
                 console.log(dice2);
                 if (dice2>=7) {
-                  alert ("Skeleton Spearman attack hits you for 3 damage!");
-                  healthPoints=healthPoints-=3;
-                  document.getElementById("healthPoints").innerHTML=healthPoints + " HP";
+                  while (skeletonHP2>0) {
+                    alert ("Skeleton Spearman attack hits you for 3 damage!");
+                    healthPoints=healthPoints-=3;
+                    document.getElementById("healthPoints").innerHTML=healthPoints + " HP";
+                    break;
+                  }
                 }
-                else if (dice2<7) {
-                  alert ("Skeleton Spearman tries to attack, but it missed!");
+                if (dice2<7) {
+                  while (skeletonHP2>0) {
+                    alert ("Skeleton Spearman tries to attack, but it missed!");
+                    break;
+                  }
                 }
               }
               // When the value of the variable is less than or is the same as 0 
