@@ -521,17 +521,6 @@
                     document.getElementById("equipment").innerHTML="Equipment: Shovel, Pickaxe, Strange book";
                   }
                 }
-               /* else if (dice <=19) {
-                  // Update variable of sword to be true if user is lucky.
-                  rareSword = true;
-                  alert ("As you search the room, you eventually find a sword tucked away in a chest and as you inspect it you see that there are markings engraved on the hilt, but you do not understand its meaning. You decide to grab it and your damage increases. (+3 dmg)");
-                  document.getElementById("damageMeter").innerHTML=damage + 3 + " damage";
-                  document.getElementById("weapon").innerHTML="Weapon: Steel Sword";
-                }
-                else if (dice > 19) {
-                  alert ("You see a tiny statue across the room and as you touch you feel a surge of energy flow through you! Your damage greatly increases. (+4 dmg)");
-                  document.getElementById("damageMeter").innerHTML=damage + 4 + " Damage";
-                }*/
               }
               // Variables containing text that user has a chance of getting
               var choiceChanceText1="As you walk into the room, you realise you are not alone. A man is standing in the middle of the room with a crazed smile on his face.";
@@ -553,7 +542,7 @@
                 console.log(dice);
                   alert (rightDoorText);
                 if (dice <= 1) {
-                  alert ("a tiny spider leaps down from the ceiling and bites you, you take +1 dmg.");
+                  alert ("A tiny spider leaps down from the ceiling and bites you, you take +1 dmg.");
                   tinySpider = true;
                   document.getElementById("healthPoints").innerHTML=healthPoints-1 + " HP";
                   if ((hitHead) && (tinySpider)) {
