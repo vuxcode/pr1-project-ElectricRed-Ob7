@@ -1,75 +1,98 @@
 <!DOCTYPE html>
 <html lane="en">
-<head>
+  <head>
     <style>
-    *{
+      *{
         margin:0px;
         box-sizing: border-box;
         background-color: black;
-    }
-    .link {
-    color:rgb(255, 187, 97);
-    background-color: rgba(68, 29, 14, 0.589);
-    font-size: 20px;
-    text-align: left;
-    text-decoration: none;
-    width: 100px;
-    height: 35px;
-    display:block;
-    margin: 10px;
-    padding:5px;
-    border-radius: 10px;
-    }
-    .link:hover {
-    background-color: rgb(70, 20, 0);
-    text-shadow: 1px 1px 5px rgb(255, 132, 49);
-    color: rgb(255, 207, 104);
-    transition-duration: 500ms;
-    width: 100px;
-    height: 35px;
-    border-radius: 10px;
-    transition-duration: 500ms;
-    }
-    .link:active {
-    color: rgb(255, 208, 0);
-    background-color: rgba(255, 123, 0, 0.589);
-    text-shadow: 1px 1px 5px orangered;
-    }
-    .aboutText {
-    color:rgb(255, 187, 0);
-    padding:5px;
-    background-color: black;
-    font-size: 20px;
-    text-align: left;
-    width: 500px;
-    height: 100px;
-    margin:10px;
-    display:block;
-    }
-    h1 {
-    color:rgb(255, 225, 185);
-    padding:5px;
-    font-variant: small-caps;
-    background-color: black;
-    font-size: 40px;
-    text-align: left;
-    width: 500px;
-    height: 50px;
-    margin:10px;
-    display:block;
-    }
-    </style>
-</head>
+        text-align:center;
+      }
+      .homeLink {
+        color:rgb(255, 187, 97);
+        background-color: rgba(68, 29, 14, 0.589);
+        font-size: 25px;
+        text-align:center;
+        text-decoration: none;
+        width: 75px;
+        height: 40px;
+        display:inline-block;
+        margin:10px;
+        padding:5px;
+        border-radius: 10px;
+      }
+      .homeLink:hover {
+        background-color: rgb(70, 20, 0);
+        text-shadow: 1px 1px 5px rgb(255, 132, 49);
+        color: rgb(255, 207, 104);
+        transition-duration: 500ms;
+      }
+      .homeLink:active {
+        color: rgb(255, 208, 0);
+        background-color: rgba(255, 123, 0, 0.589);
+        text-shadow: 1px 1px 5px orangered;
+      }
+      .programLink {
+        color:rgb(255, 187, 97);
+        background-color: rgba(68, 29, 14, 0.589);
+        font-size: 25px;
+        text-align:center;
+        text-decoration: none;
+        width: 100px;
+        height: 40px;
+        display:inline-block;
+        margin:10px;
+        padding:5px;
+        border-radius: 10px;
+      }
+      .programLink:hover {
+        background-color: rgb(70, 20, 0);
+        text-shadow: 1px 1px 5px rgb(255, 132, 49);
+        color: rgb(255, 207, 104);
+        transition-duration: 500ms;
+      }
+      .programLink:active {
+        color: rgb(255, 208, 0);
+        background-color: rgba(255, 123, 0, 0.589);
+        text-shadow: 1px 1px 5px orangered;
+      }
+      .aboutText {
+        color:rgb(255, 187, 0);
+        padding:5px;
+        background-color: black;
+        font-size: 20px;
+        text-align: center;
+        width: 500px;
+        height: 100px;
+        margin:10px;
+        display:inline-block;
+      }
+      h1 {
+        color:rgb(255, 225, 185);
+        padding:5px;
+        font-variant: small-caps;
+        background-color: black;
+        font-size: 40px;
+        text-align: center;
+        width: 500px;
+        height: 50px;
+        margin:10px;
+        display:inline-block;
+      }
+   </style>
+ </head>
 <body>
+  <!--Basic menu to navigate the different pages-->
   <nav>
-   <a class="link" href="index.html">Home</a>
-   <a class="link" href="program.html">Program</a>
+   <a class="homeLink" href="index.html">Home</a>
+   <a class="programLink" href="program.html">Program</a>
   </nav>
-    <div>
-      <h1> General info:</h1>
-      <p class="aboutText">This is a program inspired by DND and flashgames that was popular back in the early 2000's. <br>The program is heavily relying on a roll of a dice or in simpler terms, any number between 0-20 determines the outcome or output for the user.</p>
-      <h1> How To Use it:</h1>
-      <p class="aboutText">The program uses a combination of prompts, alerts and buttons so all you need to do is press the buttons and read the text that shows up.</p>
-    </div>
+  <!--Text that explains the inspiration for the program/game and how it works -->
+  <div>
+    <h1> General info:</h1>
+    <br><p class="aboutText">This is a program inspired by DND and flashgames that was popular back in the early 2000's. <br>The program is a roll of a dice or in simpler terms, any number between 0-20 determines the outcome for the user.</p>
+    <br><h1> How To Use it:</h1>
+    <br><p class="aboutText">The program uses a combination of prompts, alerts and buttons so all you need to do is press the buttons and read the text that shows up.</p>
+  </div>
 </body>
 </html>
