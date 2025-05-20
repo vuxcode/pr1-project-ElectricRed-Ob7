@@ -139,9 +139,9 @@
       .programDiv {
         display: inline-block;
         padding: 5px;
-        margin: 50px;
+        margin: 10px;
         width: 700px;
-        height: 800px;
+        height: 600px;
       }
       .introText {
         font-size: 17px;
@@ -190,7 +190,7 @@
         margin-bottom:15px;
       }
       .doorTextStyle {
-        font-size: 17px;
+        font-size: 20px;
         font-weight: bolder;
         font-family: papyrus;
         margin: 1px;
@@ -198,15 +198,24 @@
         text-shadow: 1px 1px 5px rgb(255, 94, 0); 
       }
       .textStyle {
-        font-size: 17px;
+        font-size: 20px;
         font-weight: bolder;
         font-family: papyrus;
-        margin: 1px;
+        margin: 10px;
         color: rgb(255, 177, 75);
-        text-shadow: 1px 1px 5px rgb(255, 94, 0); 
+        text-shadow: 1px 1px 2px rgb(255, 30, 0); 
+      }
+      .stairsText {
+        font-size: 17px;
+        text-align: center;
+        font-weight: bolder;
+        font-family: papyrus;
+        margin: 10px;
+        color: rgb(255, 177, 75);
+        text-shadow: 1px 1px 2px rgb(255, 30, 0); 
       }
       .cathedralText {
-        font-size: 17px;
+        font-size: 20px;
         font-weight: bolder;
         font-family: papyrus;
         margin: 5px;
@@ -265,8 +274,8 @@
         font-family: papyrus;
         margin: 5px;
         text-wrap-style: nowrap;
-        color: rgb(255, 212, 23);
-        text-shadow: 1px 1px 2px rgb(29, 29, 29); 
+        color: rgb(255, 177, 75);
+        text-shadow: 1px 1px 5px rgb(255, 94, 0); 
       }
       .link {
         color: rgb(255, 187, 97);
@@ -355,9 +364,11 @@
           </p>
           <p id="doorText" class="doorTextStyle">Your curiosity gets the better of you and decide that you want to look inside the two doors. Which one do you pick first?</p>
           <p id="insideDoor" class="textStyle">There is nothing left for you here...</p>
-          <p id="basementText" class="textStyle">You go down the stairs, but the stairs seem endless and you start to lose track of time. Eventually, after what feels like forever, you see a light as you reach the bottom of the stairs and see the outline of a doorway.</p>
+          <p id="stairsText" class="textStyle">The void beckons...</p>
+          <p id="basementText" class="stairsText">You go down the stairs, unsure of what you will find at the bottom. After a while you feel that your legs are starting to ache from all the excessive use and you feel yourself lose track of time as there seem to be no end to this spiral of never-ending darkness...<br>Eventually, after what feels like forever, you see a light eminating from a doorway. <br>You breathe a sigh of relief as you reach the bottom of the stairs.</p>
           <p id="outputCathedralText" class="textStyle">As you go through the doorway, you realise that you are standing in the remains of an underground cathedral, with massive pillars decorating the endless darkness, with a couple of tourches being the only source of light.</p>
-          <p id ="afterFightText" class="fightText">You defeat the skeletons, but you are injured and require some medical attention.</p>
+          <p id="skeletonWinText" class="fightText">You have successfully defeated the skeletons, congratulations! <br>Surely, this great battle will be remembered by scholars for years to come....right...r-right...?</p>
+          <p id ="afterFightText" class="fightText">You look over any wounds you recieved from the battle and realise they require some medical attention.</p>
           <button id="continue" class="Button" onclick="continueButton()">Continue</button>
           <button id="leftdoor" class="leftDoorButton" onclick="leftDoor()"></button>
           <button id="rightdoor" class="rightDoorButton" onclick="rightDoor()"></button>
@@ -368,6 +379,7 @@
           <button id="cathedralButton" class="Button" onclick="cathedral()">Continue</button>
           <button id="skeleton1" class="skeletonStyle" onclick="skeletonButton1()">20 HP</button>
           <button id="skeleton2" class="skeletonStyle" onclick="skeletonButton2()">20 HP</button>
+          <button id="skeletonFightContinue" class="Button" onclick="skeletonFightContinue()">Continue</button>
           <button id="afterFightButton1" class="healButtonStyle" onclick="mendingSelf()">Try to mend your wounds yourself.</button>
           <button id="afterFightButton2" class="healButtonStyle" onclick="lookForMedical()">Look for medical supplies.</button>
           <h1 id ="healthPoints" class="healthDisplay">100 HP</h1>
@@ -401,8 +413,11 @@
               var outputRightDoor = document.getElementById("rightdoor");
               var outputLeftReturn = document.getElementById("returnFromDoor1");
               var outputRightReturn = document.getElementById("returnFromDoor2");
+              var outputStairsText = document.getElementById("stairsText");
               var outputStairs = document.getElementById("stairs");
               var outputCathedralButton = document.getElementById("cathedralButton");
+              var outputSkeletonWinText = document.getElementById("skeletonWinText");
+              var outputSkeletonFightContinue = document.getElementById("skeletonFightContinue");
               var outputAfterFight1=document.getElementById("afterFightButton1");
               var outputAfterFight2=document.getElementById("afterFightButton2");
               var outputAfterFightText=document.getElementById("afterFightText");
@@ -443,6 +458,7 @@
               outputRightDoor.style.display="none";
               outputLeftReturn.style.display="none";
               outputRightReturn.style.display="none";
+              outputStairsText.style.display="none";
               outputStairs.style.display="none";
               outputBasementText.style.display="none";
               outputBasementDoor.style.display="none";
@@ -450,6 +466,8 @@
               outputCathedralButton.style.display="none";
               outputSkeleton1.style.display="none";
               outputSkeleton2.style.display="none";
+              outputSkeletonWinText.style.display="none";
+              outputSkeletonFightContinue.style.display="none";
               outputAfterFight1.style.display="none";
               outputAfterFight2.style.display="none";
               outputAfterFightText.style.display="none";
@@ -489,7 +507,6 @@
                 outputRightDoor.style.display="none";
                 outputLeftReturn.style.display="inline-block";
                 outputRightReturn.style.display="none";
-                outputStairs.style.display="none";
                 // Picks a random number
                 var dice = Math.random();
                 // Picks a random  from 0 to 20 
@@ -521,6 +538,17 @@
                     document.getElementById("equipment").innerHTML="Equipment: Shovel, Pickaxe, Strange book";
                   }
                 }
+               /* else if (dice <=19) {
+                  // Update variable of sword to be true if user is lucky.
+                  rareSword = true;
+                  alert ("As you search the room, you eventually find a sword tucked away in a chest and as you inspect it you see that there are markings engraved on the hilt, but you do not understand its meaning. You decide to grab it and your damage increases. (+3 dmg)");
+                  document.getElementById("damageMeter").innerHTML=damage + 3 + " damage";
+                  document.getElementById("weapon").innerHTML="Weapon: Steel Sword";
+                }
+                else if (dice > 19) {
+                  alert ("You see a tiny statue across the room and as you touch you feel a surge of energy flow through you! Your damage greatly increases. (+4 dmg)");
+                  document.getElementById("damageMeter").innerHTML=damage + 4 + " Damage";
+                }*/
               }
               // Variables containing text that user has a chance of getting
               var choiceChanceText1="As you walk into the room, you realise you are not alone. A man is standing in the middle of the room with a crazed smile on his face.";
@@ -536,7 +564,6 @@
                 outputRightDoor.style.display = "none";
                 outputLeftReturn.style.display = "none";
                 outputRightReturn.style.display = "inline-block";
-                outputStairs.style.display = "none";
                 var dice = Math.random();
                 var dice = Math.floor(dice * max);
                 console.log(dice);
@@ -552,7 +579,7 @@
                 else if (dice <= 3) {
                   alert("You search the room but find nothing...")
                 }
-                else if (dice <= 7) {
+                /*else if (dice <= 7) {
                     alert ("You search the room and find a book with symbols written all over it. The book itself is written in some sort of elvish and you are not able to translate it. You decide to put it in your backpack for the time being.");
                   // Update the variable to be used later in the program (its not used as of now)
                   strangeBook = true;
@@ -565,19 +592,16 @@
                   alert ("As you search through the room, you are able to find some gold! (+20 gold)");
                   // Updates the text in the html element
                   document.getElementById("amountOfGold").innerHTML=gold + 20 + " gold";
-                }
+                }*/
                 // Any number between 15 to 20 creates unique output to user
                 else {
                   // Text for a riddle that the user is supposed to solve.
                   alert (choiceChanceText1 + " "+ choiceChanceText2 + " "+ choiceChanceText3);
                   // Creates a prompt
                   var answer = prompt("Choose wisely...");
-                  var candle="candle";
-                  candle=candle.toLowerCase();
                   // Anything the user types will be converted to lowercase
-                  //answer = answer.toLowerCase();
                   // If the user guess is correct, they will be rewarded
-                  if (answer==candle) {
+                  if ((answer!=null) && (answer.toLowerCase()=="candle")) {
                     alert ("That is correct. You receive 50 gold!");
                     // output in console so you can see its working as intended
                     console.log(gold + 50 + " gold");
@@ -618,6 +642,7 @@
                   outputRightDoor.style.display="none";
                   outputLeftReturn.style.display="none";
                   outputRightReturn.style.display="none";
+                  outputStairsText.style.display="block";
                   outputStairs.style.display="inline-block";
                   alert("There is no more rooms to search so your gaze turns towards the stairs.");
                 }
@@ -640,6 +665,7 @@
                   outputRightDoor.style.display="none";
                   outputLeftReturn.style.display="none";
                   outputRightReturn.style.display="none";
+                  outputStairsText.style.display="block";
                   outputStairs.style.display="inline-block";
                   alert("There are no more rooms to search so your gaze turns towards the stairs.");
                 }
@@ -652,6 +678,7 @@
                 outputRightDoor.style.display="none";
                 outputLeftReturn.style.display="none";
                 outputRightReturn.style.display="none";
+                outputStairsText.style.display="none";
                 outputStairs.style.display="none";
                 outputBasementText.style.display="inline-block";
                 outputBasementDoor.style.display="inline-block";
@@ -734,9 +761,8 @@
                 outputSkeleton1.style.display="none";
               }
               if ((skeleton1Victory) && (skeleton2Victory)) {
-                outputAfterFightText.style.display="inline-block";
-                outputAfterFight1.style.display="inline-block";
-                outputAfterFight2.style.display="inline-block";
+                outputSkeletonWinText.style.display="block";
+                outputSkeletonFightContinue.style.display="inline-block";
               }
             }  
             function skeletonButton2() {
@@ -783,10 +809,16 @@
               }
               // When both skeletons are defeated, continue the program
               if ((skeleton1Victory) && (skeleton2Victory)) {
+                outputSkeletonWinText.style.display="block";
+                outputSkeletonFightContinue.style.display="inline-block";
+              }
+            }
+            function skeletonFightContinue() {
                 outputAfterFightText.style.display="inline-block";
                 outputAfterFight1.style.display="inline-block";
                 outputAfterFight2.style.display="inline-block";
-              }
+                outputSkeletonWinText.style.display="none";
+                outputSkeletonFightContinue.style.display="none";
             }
             // After the skeleton fight 
             // user gets a chance to heal themselves
