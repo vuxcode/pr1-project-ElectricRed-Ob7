@@ -419,6 +419,7 @@
           if (skeletonHP1<=0) {
             skeleton1Victory = true;
             outputSkeleton1.style.display="none";
+            alert("Skeleton Swordsman has been defeated!");
           }
           if ((skeleton1Victory) && (skeleton2Victory)) {
             outputSkeletonWinText.style.display="block";
@@ -462,10 +463,11 @@
           }
             // When the value of the variable is less than or is the same as 0 
             // The button gets hidden
-            if (skeletonHP2<=0) { 
+          if (skeletonHP2<=0) { 
               // updates the variable
               skeleton2Victory = true;
               outputSkeleton2.style.display="none";
+              alert("Skeleton Spearman has been defeated!");
           }
           // When both skeletons are defeated, continue the program
           if ((skeleton1Victory) && (skeleton2Victory)) {
