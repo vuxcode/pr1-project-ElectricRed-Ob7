@@ -170,9 +170,9 @@
           outputLeftReturn.style.display="inline-block";
           outputRightReturn.style.display="none";
           // Picks a random number
-          var dice = Math.random();
+          dice = Math.random();
           // Picks a random  from 0 to 20 
-          var dice = Math.floor(dice * max);
+          dice = Math.floor(dice * max);
           console.log (dice);
           // Shows an alert to the user when pressing the left door button
           alert (leftDoorText);
@@ -226,8 +226,8 @@
           outputRightDoor.style.display = "none";
           outputLeftReturn.style.display = "none";
           outputRightReturn.style.display = "inline-block";
-          var dice = Math.random();
-          var dice = Math.floor(dice * max);
+          dice = Math.random();
+          dice = Math.floor(dice * max);
           console.log(dice);
             alert (rightDoorText);
           if (dice <= 1) {
@@ -362,8 +362,6 @@
         // Skeleton gets own dice in order 
         // to roll any number between 0 to 20
         var dice2 = Number(dice2);
-        var dice2 = Math.random();
-        var dice2 = Math.floor(dice2 * max);
         var skeletonHP1=20;
         var skeletonHP2=20;
         var skeleton1Victory = false;
