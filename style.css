@@ -103,7 +103,8 @@
         background: radial-gradient(rgba(107, 73, 22, 0.664), rgb(0, 0, 0));
         border-color: rgb(29, 29, 29);
         border-style: solid;
-        border-radius: 5px;
+        border-top-left-radius: 50px;
+        border-top-right-radius: 50px;
         border-width: 5px;
         transition-duration: 500ms;
       }
